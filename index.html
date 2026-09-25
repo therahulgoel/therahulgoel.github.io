@@ -1188,39 +1188,93 @@
       border-radius: var(--radius-sm);
     }
 
+    /* ─── Events Filter Tabs ─── */
+    .events-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .event-tab {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .event-tab:hover {
+      border-color: var(--border-accent);
+      color: var(--text);
+    }
+
+    .event-tab.active {
+      background: var(--accent-blue-gradient);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.3);
+    }
+
+    .event-tab-count {
+      font-size: 0.72rem;
+      opacity: 0.9;
+      background: rgba(0, 0, 0, 0.12);
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+    }
+
+    .event-tab.active .event-tab-count {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
     /* ─── Events Attended Grid ─── */
-    .attended-grid {
+    .events-attended-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
       margin-bottom: 56px;
     }
 
-    .attended-card {
+    .event-attended-item {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      overflow: hidden;
+      padding: 20px;
       box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
 
-    .attended-card:hover {
+    .event-attended-item:hover {
       border-color: var(--border-accent);
       transform: translateY(-3px);
       box-shadow: var(--shadow-hover);
     }
 
-    .attended-media {
+    .event-attended-item.has-photo {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .event-attended-photo-wrap {
       position: relative;
-      height: 220px;
+      height: 190px;
       overflow: hidden;
       background: var(--bg-subtle);
     }
 
-    .attended-img {
+    .event-attended-photo {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -1229,68 +1283,105 @@
       display: block;
     }
 
-    .attended-card:hover .attended-img {
-      transform: scale(1.04);
+    .event-attended-item:hover .event-attended-photo {
+      transform: scale(1.05);
     }
 
-    .attended-date-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(15, 23, 42, 0.78);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: #FFFFFF;
-      font-size: 0.74rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .attended-body {
-      padding: 22px;
+    .event-attended-item.has-photo .event-attended-content {
+      padding: 20px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
-    .attended-tag {
+    .event-item-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .event-cat-badge {
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--accent-emerald);
-      margin-bottom: 8px;
+      padding: 3px 9px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .attended-title {
-      font-size: 1.15rem;
+    .event-cat-badge.apple {
+      background: rgba(2, 132, 199, 0.08);
+      color: var(--accent-blue);
+      border: 1px solid var(--border-accent);
+    }
+
+    .event-cat-badge.swift {
+      background: rgba(249, 115, 22, 0.08);
+      color: #EA580C;
+      border: 1px solid rgba(249, 115, 22, 0.25);
+    }
+
+    .event-cat-badge.ai {
+      background: rgba(124, 58, 237, 0.08);
+      color: var(--accent-purple);
+      border: 1px solid rgba(124, 58, 237, 0.25);
+    }
+
+    .event-cat-badge.summit {
+      background: rgba(5, 150, 105, 0.08);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(5, 150, 105, 0.25);
+    }
+
+    .event-cat-badge.design {
+      background: rgba(217, 119, 6, 0.08);
+      color: var(--accent-amber);
+      border: 1px solid rgba(217, 119, 6, 0.25);
+    }
+
+    .event-date-pill {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-subtle);
+      background: var(--bg-subtle);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .event-item-title {
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--text);
       line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .event-item-venue {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
       margin-bottom: 8px;
     }
 
-    .attended-meta {
+    .event-item-desc {
       font-size: 0.84rem;
       color: var(--text-subtle);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .attended-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 16px;
+      line-height: 1.5;
+      margin-bottom: 14px;
       flex: 1;
     }
 
-    .attended-actions {
+    .event-item-footer {
       margin-top: auto;
       display: flex;
       align-items: center;
@@ -2185,88 +2276,470 @@
       <div class="section-head">
         <div class="section-eyebrow">Ecosystem Participation</div>
         <h2 class="section-title">Events, Hackathons & Conferences Attended</h2>
-        <p class="section-desc">Active participant in nationwide hackathons, flagship tech summits, and developer gatherings across the Indian & global engineering ecosystem.</p>
+        <p class="section-desc">Chronological timeline of developer conferences, hackathons, and Apple ecosystem meetups attended across 2024–2026.</p>
       </div>
 
-      <div class="attended-grid">
-        <!-- Event 1: Paytm AI Hackathon -->
-        <article class="attended-card">
-          <div class="attended-media">
-            <a href="https://x.com/therahulgoel/status/2035196998039798068" target="_blank" rel="noopener">
-              <img src="assets/community/paytm-hackathon.jpg" alt="Paytm AI Hackathon #BuildforIndia" class="attended-img" loading="lazy">
-            </a>
-            <div class="attended-date-badge">March 2026</div>
-          </div>
-          <div class="attended-body">
-            <div class="attended-tag">🤖 AI Hackathon • Paytm</div>
-            <h3 class="attended-title">Paytm AI Hackathon (#BuildforIndia)</h3>
-            <div class="attended-meta">
-              <span>Organized by <a href="https://x.com/Paytm" target="_blank" rel="noopener">@Paytm</a></span>
-              <span>•</span>
-              <span>Bengaluru</span>
-            </div>
-            <p class="attended-desc">
-              Participated in the high-velocity <strong>Paytm AI Hackathon</strong> under the <em>#BuildforIndia</em> initiative, exploring applied generative AI, agentic developer workflows, and scalable digital solutions for India's digital platform economy.
-            </p>
-            <div class="attended-actions">
-              <a href="https://x.com/therahulgoel/status/2035196998039798068" target="_blank" rel="noopener" class="btn btn-secondary btn-xs">
-                <span>View Post on X ↗</span>
-              </a>
-            </div>
-          </div>
-        </article>
+      <!-- Interactive Year Filter Tabs -->
+      <div class="events-filter-bar">
+        <button class="event-tab active" onclick="filterEvents('all', this)">
+          <span>All Events</span>
+          <span class="event-tab-count">24</span>
+        </button>
+        <button class="event-tab" onclick="filterEvents('2026', this)">
+          <span>2026</span>
+          <span class="event-tab-count">11</span>
+        </button>
+        <button class="event-tab" onclick="filterEvents('2025', this)">
+          <span>2025</span>
+          <span class="event-tab-count">10</span>
+        </button>
+        <button class="event-tab" onclick="filterEvents('2024', this)">
+          <span>2024</span>
+          <span class="event-tab-count">3</span>
+        </button>
+      </div>
 
-        <!-- Event 2: Bengaluru Tech Week -->
-        <article class="attended-card">
-          <div class="attended-media">
-            <img src="assets/community/bengaluru-tech-week.png" alt="Bengaluru Tech Week delegate attendee" class="attended-img" style="object-position: center center;" loading="lazy">
-            <div class="attended-date-badge">Sept 1–6, 2026</div>
+      <div class="events-attended-grid">
+      <!-- Bengaluru Tech Week 2026 -->
+      <article class="event-attended-item has-photo" data-year="2026">
+        <div class="event-attended-photo-wrap">
+          <img src="assets/community/bengaluru-tech-week.png" alt="Bengaluru Tech Week 2026" class="event-attended-photo" loading="lazy">
+        </div>
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge summit">Flagship Tech Summit</span>
+            <span class="event-date-pill">Sept 1–6, 2026</span>
           </div>
-          <div class="attended-body">
-            <div class="attended-tag">🌐 Flagship Tech Summit</div>
-            <h3 class="attended-title">Bengaluru Tech Week 2026</h3>
-            <div class="attended-meta">
-              <span>Premier Tech Corridor</span>
-              <span>•</span>
-              <span>Bengaluru, India</span>
-            </div>
-            <p class="attended-desc">
-              Delegate attendee at Asia's premier convergence of technology founders, engineering executives, and platform leaders, exploring innovations in AI systems, cloud infrastructure, and next-gen mobile architecture.
-            </p>
-            <div class="attended-actions">
-              <span class="tag" style="background: rgba(2, 132, 199, 0.08); color: var(--accent-blue); border-color: var(--border-accent);">
-                Delegate Attendee
-              </span>
-            </div>
+          <h3 class="event-item-title">Bengaluru Tech Week 2026</h3>
+          <div class="event-item-venue">
+            <span>📍 Bengaluru Tech Corridor</span>
           </div>
-        </article>
+          <p class="event-item-desc">Asia’s premier convergence of technology founders, engineering executives, and mobile platform innovators.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Delegate Attendee</span>
+          </div>
+        </div>
+      </article>
 
-        <!-- Event 3: SwiftBengaluru Ecosystem -->
-        <article class="attended-card">
-          <div class="attended-media">
-            <a href="https://x.com/SwiftBengaluru" target="_blank" rel="noopener">
-              <img src="assets/community/swiftbengaluru-stage.jpg" alt="SwiftBengaluru iOS Community Meetups" class="attended-img" loading="lazy">
-            </a>
-            <div class="attended-date-badge">2024 — Present</div>
+      <!-- Google I/O Connect | India 2026 -->
+      <article class="event-attended-item" data-year="2026">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge summit">Developer Summit</span>
+            <span class="event-date-pill">July 2026</span>
           </div>
-          <div class="attended-body">
-            <div class="attended-tag">🍏 Developer Community</div>
-            <h3 class="attended-title">Swift & Apple Ecosystem Meetups</h3>
-            <div class="attended-meta">
-              <span>SwiftBengaluru Hub</span>
-              <span>•</span>
-              <span>Bengaluru</span>
-            </div>
-            <p class="attended-desc">
-              Regular attendee and contributor in Bengaluru's Apple and mobile developer community, collaborating with iOS architects on Swift Concurrency adoption, Instruments memory profiling, and cross-team platform engineering.
-            </p>
-            <div class="attended-actions">
-              <a href="https://x.com/SwiftBengaluru" target="_blank" rel="noopener" class="btn btn-secondary btn-xs">
-                <span>@SwiftBengaluru on X ↗</span>
-              </a>
-            </div>
+          <h3 class="event-item-title">Google I/O Connect | India 2026</h3>
+          <div class="event-item-venue">
+            <span>📍 Google, Bengaluru</span>
           </div>
-        </article>
+          <p class="event-item-desc">Deep-dive sessions on generative AI APIs, modern web/mobile standards, and developer productivity tooling.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Google I/O Connect</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bangalore Config Watch Party 2026 (Figma) -->
+      <article class="event-attended-item" data-year="2026">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge design">Design & UX</span>
+            <span class="event-date-pill">July 2026</span>
+          </div>
+          <h3 class="event-item-title">Bangalore Config Watch Party 2026 (Figma)</h3>
+          <div class="event-item-venue">
+            <span>📍 Bengaluru Hub</span>
+          </div>
+          <p class="event-item-desc">Community gathering exploring design systems, Figma AI features, and seamless design-to-code engineer workflows.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Config WatchParty</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Apple Dev Center : Bengaluru WWDC 2026 -->
+      <article class="event-attended-item" data-year="2026">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge apple">Apple Dev Center</span>
+            <span class="event-date-pill">June 2026</span>
+          </div>
+          <h3 class="event-item-title">Apple Dev Center : Bengaluru WWDC 2026</h3>
+          <div class="event-item-venue">
+            <span>📍 Apple Developer Center, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Official Apple Developer Center gathering exploring latest Swift paradigms, iOS SDK enhancements, and platform APIs.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Apple Dev Center</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- WWDC 2026 Keynote & SOTU WatchParty -->
+      <article class="event-attended-item" data-year="2026">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge apple">Apple & WWDC</span>
+            <span class="event-date-pill">June 2026</span>
+          </div>
+          <h3 class="event-item-title">WWDC 2026 Keynote & SOTU WatchParty</h3>
+          <div class="event-item-venue">
+            <span>📍 Swiggy Head Office, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Engineering watch party for Apple Worldwide Developers Conference keynote and State of the Union with fellow tech leads.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Swiggy HO</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- New Relic Advance Bengaluru 2026 -->
+      <article class="event-attended-item" data-year="2026">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge summit">Observability & Tech</span>
+            <span class="event-date-pill">June 2026</span>
+          </div>
+          <h3 class="event-item-title">New Relic Advance Bengaluru 2026</h3>
+          <div class="event-item-venue">
+            <span>📍 New Relic, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Sessions on full-stack observability, real-time client telemetry, crash triage, and runtime performance instrumentation.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">New Relic Advance</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Paytm AI Hackathon 2026 (#BuildforIndia) -->
+      <article class="event-attended-item has-photo" data-year="2026">
+        <div class="event-attended-photo-wrap">
+          <a href="https://x.com/therahulgoel/status/2035196998039798068" target="_blank" rel="noopener"><img src="assets/community/paytm-hackathon.jpg" alt="Paytm AI Hackathon 2026 (#BuildforIndia)" class="event-attended-photo" loading="lazy"></a>
+        </div>
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge ai">AI Hackathon</span>
+            <span class="event-date-pill">March 2026</span>
+          </div>
+          <h3 class="event-item-title">Paytm AI Hackathon 2026 (#BuildforIndia)</h3>
+          <div class="event-item-venue">
+            <span>📍 Paytm, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Built applied generative AI solutions and autonomous agent workflows under the nationwide #BuildforIndia hackathon.</p>
+          <div class="event-item-footer">
+            <a href="https://x.com/therahulgoel/status/2035196998039798068" target="_blank" rel="noopener" class="btn btn-secondary btn-xs"><span>View Post on X ↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- IISc Open Day 2026 -->
+      <article class="event-attended-item" data-year="2026">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge summit">Science & Research</span>
+            <span class="event-date-pill">March 2026</span>
+          </div>
+          <h3 class="event-item-title">IISc Open Day 2026</h3>
+          <div class="event-item-venue">
+            <span>📍 Indian Institute of Science (IISc), Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Exploring bleeding-edge computing research, machine intelligence demonstrations, and robotics at India’s premier institute.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">IISc Bengaluru</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- OpenAI Codex Community Meetup -->
+      <article class="event-attended-item" data-year="2026">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge ai">AI & Codex</span>
+            <span class="event-date-pill">March 2026</span>
+          </div>
+          <h3 class="event-item-title">OpenAI Codex Community Meetup</h3>
+          <div class="event-item-venue">
+            <span>📍 OpenAI Community, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Peer discussions on LLM-driven coding agents, Model Context Protocol (MCP), and automated refactoring pipelines.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">OpenAI Codex Meetup</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Swift Bengaluru x Meesho -->
+      <article class="event-attended-item" data-year="2026">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge swift">Swift Community</span>
+            <span class="event-date-pill">February 2026</span>
+          </div>
+          <h3 class="event-item-title">Swift Bengaluru x Meesho</h3>
+          <div class="event-item-venue">
+            <span>📍 Meesho Campus, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Mobile architecture exchange covering modular design, Swift Concurrency adoption, and app startup optimization.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Meesho Campus</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Swift Developer Meetup @ CMRIT -->
+      <article class="event-attended-item" data-year="2026">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge swift">Swift Community</span>
+            <span class="event-date-pill">January 2026</span>
+          </div>
+          <h3 class="event-item-title">Swift Developer Meetup @ CMRIT</h3>
+          <div class="event-item-venue">
+            <span>📍 CMRIT, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Technical meetup discussing Swift modern concurrency, Instruments memory profiling, and mobile engineering best practices.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">CMRIT Bengaluru</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Swift Bharat 2025 -->
+      <article class="event-attended-item" data-year="2025">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge swift">National Conference</span>
+            <span class="event-date-pill">Sep 2025</span>
+          </div>
+          <h3 class="event-item-title">Swift Bharat 2025</h3>
+          <div class="event-item-venue">
+            <span>📍 Bengaluru, India</span>
+          </div>
+          <p class="event-item-desc">India’s premier community conference for Apple platform developers, featuring deep-dives into modern Swift and architecture.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Swift Bharat</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Google I/O Connect | India 2025 -->
+      <article class="event-attended-item" data-year="2025">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge summit">Developer Summit</span>
+            <span class="event-date-pill">July 2025</span>
+          </div>
+          <h3 class="event-item-title">Google I/O Connect | India 2025</h3>
+          <div class="event-item-venue">
+            <span>📍 Google, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Hands-on technical sessions on cloud architectures, mobile performance, and generative AI toolchains.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Google I/O Connect</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hackathon Demo Day @ Kanini -->
+      <article class="event-attended-item" data-year="2025">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge ai">Hackathon Demo</span>
+            <span class="event-date-pill">July 2025</span>
+          </div>
+          <h3 class="event-item-title">Hackathon Demo Day @ Kanini</h3>
+          <div class="event-item-venue">
+            <span>📍 Kanini Software Solutions, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Showcasing working prototypes, system designs, and automated mobile workflows at the Kanini hackathon showcase.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Kanini Software</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Beyond WWDC 25 at Meesho -->
+      <article class="event-attended-item" data-year="2025">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge swift">Tech Community</span>
+            <span class="event-date-pill">July 2025</span>
+          </div>
+          <h3 class="event-item-title">Beyond WWDC 25 at Meesho</h3>
+          <div class="event-item-venue">
+            <span>📍 Meesho, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Post-WWDC engineering roundtable analyzing new iOS SDK APIs, SwiftUI enhancements, and platform migration strategies.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Meesho Bengaluru</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Apple Dev Center : Bengaluru WWDC 2025 -->
+      <article class="event-attended-item" data-year="2025">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge apple">Apple Dev Center</span>
+            <span class="event-date-pill">July 2025</span>
+          </div>
+          <h3 class="event-item-title">Apple Dev Center : Bengaluru WWDC 2025</h3>
+          <div class="event-item-venue">
+            <span>📍 Apple Developer Center, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Official Apple Developer Center post-keynote labs and engineering sessions exploring WWDC25 releases.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Apple Dev Center</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- WWDC25 Keynote & SOTU WatchParty -->
+      <article class="event-attended-item" data-year="2025">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge apple">Apple & WWDC</span>
+            <span class="event-date-pill">June 2025</span>
+          </div>
+          <h3 class="event-item-title">WWDC25 Keynote & SOTU WatchParty</h3>
+          <div class="event-item-venue">
+            <span>📍 Swiggy Head Office, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Community watch party at Swiggy HO analyzing Apple’s annual keynote and developer platform advancements.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Swiggy HO</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Figma Config 2025 Watch Party -->
+      <article class="event-attended-item" data-year="2025">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge design">Design & UX</span>
+            <span class="event-date-pill">May 2025</span>
+          </div>
+          <h3 class="event-item-title">Figma Config 2025 Watch Party</h3>
+          <div class="event-item-venue">
+            <span>📍 K P Towers, New Delhi</span>
+          </div>
+          <p class="event-item-desc">Figma annual global conference watch party exploring design systems, variables, and cross-functional handoff.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Config WatchParty</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Swift Developers Meetup @ Motive -->
+      <article class="event-attended-item has-photo" data-year="2025">
+        <div class="event-attended-photo-wrap">
+          <a href="https://x.com/therahulgoel/status/1926547112050794815" target="_blank" rel="noopener"><img src="assets/community/swiftbengaluru-panel.jpg" alt="Swift Developers Meetup @ Motive" class="event-attended-photo" loading="lazy"></a>
+        </div>
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge swift">Swift Community</span>
+            <span class="event-date-pill">May 2025</span>
+          </div>
+          <h3 class="event-item-title">Swift Developers Meetup @ Motive</h3>
+          <div class="event-item-venue">
+            <span>📍 Motive, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Active participant and panelist on AI in development workflows, modern concurrency, and mobile developer velocity.</p>
+          <div class="event-item-footer">
+            <a href="https://x.com/therahulgoel/status/1926547112050794815" target="_blank" rel="noopener" class="btn btn-secondary btn-xs"><span>View Post on X ↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Uber Mobi Conf 2025 -->
+      <article class="event-attended-item" data-year="2025">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge summit">Mobile Conference</span>
+            <span class="event-date-pill">January 2025</span>
+          </div>
+          <h3 class="event-item-title">Uber Mobi Conf 2025</h3>
+          <div class="event-item-venue">
+            <span>📍 Uber, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Flagship mobile engineering conference at Uber covering large-scale app performance, networking, and platform resiliency.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Uber Mobi Conf</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Apple Dev Center : Enhance Apps with Apple Intelligence -->
+      <article class="event-attended-item" data-year="2025">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge apple">Apple Dev Center</span>
+            <span class="event-date-pill">January 2025</span>
+          </div>
+          <h3 class="event-item-title">Apple Dev Center : Enhance Apps with Apple Intelligence</h3>
+          <div class="event-item-venue">
+            <span>📍 Apple Developer Center, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">In-depth engineering workshop on integrating on-device Apple Intelligence, App Intents, and Core ML into iOS apps.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Apple Dev Center</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Swift Developers Meetup @ Greenlight -->
+      <article class="event-attended-item" data-year="2024">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge swift">Swift Community</span>
+            <span class="event-date-pill">September 2024</span>
+          </div>
+          <h3 class="event-item-title">Swift Developers Meetup @ Greenlight</h3>
+          <div class="event-item-venue">
+            <span>📍 Greenlight, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Community meetup exploring Swift 6 preparation, data-race safety, and modern architecture patterns.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Greenlight Bengaluru</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Apple Dev Center : Bengaluru WWDC 2024 -->
+      <article class="event-attended-item" data-year="2024">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge apple">Apple Dev Center</span>
+            <span class="event-date-pill">July 2024</span>
+          </div>
+          <h3 class="event-item-title">Apple Dev Center : Bengaluru WWDC 2024</h3>
+          <div class="event-item-venue">
+            <span>📍 Apple Developer Center, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Apple Developer Center event celebrating WWDC24 launches, SwiftData, and spatial computing platform APIs.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Apple Dev Center</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Swift Developers Meetup @ Navi -->
+      <article class="event-attended-item" data-year="2024">
+        <div class="event-attended-content">
+          <div class="event-item-top">
+            <span class="event-cat-badge swift">Swift Community</span>
+            <span class="event-date-pill">June 2024</span>
+          </div>
+          <h3 class="event-item-title">Swift Developers Meetup @ Navi</h3>
+          <div class="event-item-venue">
+            <span>📍 Navi, Bengaluru</span>
+          </div>
+          <p class="event-item-desc">Technical meetup at Navi covering fintech app architecture, modular dependency injection, and startup latency reduction.</p>
+          <div class="event-item-footer">
+            <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Navi Bengaluru</span>
+          </div>
+        </div>
+      </article>
       </div>
     </section>
 
@@ -2431,6 +2904,21 @@
       if (btn) {
         btn.querySelector('span').textContent = allExpanded ? 'Expand All Details ▾' : 'Collapse All Details ▴';
       }
+    }
+
+    // ─── Events Attended Year Filter Logic ───
+    function filterEvents(year, button) {
+      document.querySelectorAll('.event-tab').forEach(t => t.classList.remove('active'));
+      button.classList.add('active');
+
+      const items = document.querySelectorAll('.event-attended-item');
+      items.forEach(item => {
+        if (year === 'all' || item.getAttribute('data-year') === year) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     }
   </script>
 
