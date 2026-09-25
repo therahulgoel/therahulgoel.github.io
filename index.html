@@ -1407,304 +1407,22 @@
       border-radius: var(--radius-sm);
     }
 
-        /* ─── Events & Conference Attendance Master Tracker Dashboard ─── */
-    .events-tracker-dashboard {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 26px 28px;
-      margin-bottom: 30px;
-      box-shadow: var(--shadow-card);
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 28px;
-      align-items: stretch;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .events-tracker-dashboard::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-purple) 50%, var(--accent-emerald) 100%);
-    }
-
-    .tracker-main-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .tracker-header-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent-blue);
-      background: rgba(2, 132, 199, 0.08);
-      border: 1px solid var(--border-accent);
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      width: fit-content;
-      margin-bottom: 12px;
-    }
-
-    .pulse-dot {
-      width: 7px;
-      height: 7px;
-      background: #10B981;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
-      animation: pulseDot 2s infinite;
-    }
-
-    @keyframes pulseDot {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-      70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-    }
-
-    .tracker-big-stat {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-    }
-
-    .tracker-number {
-      font-size: 3.2rem;
-      font-weight: 900;
-      line-height: 1;
-      background: var(--accent-blue-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.03em;
-    }
-
-    .tracker-stat-meta {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .tracker-label {
-      font-size: 1.18rem;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1.25;
-    }
-
-    .tracker-sub {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 3px;
-    }
-
-    .tracker-quick-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .t-stat-pill {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 10px 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .t-stat-pill:hover {
-      border-color: var(--accent-blue);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-      background: var(--bg-subtle);
-    }
-
-    .t-stat-year {
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: var(--text-subtle);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .t-stat-num {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: var(--text);
-      margin: 2px 0;
-    }
-
-    .t-stat-tag {
-      font-size: 0.68rem;
-      color: var(--accent-blue);
-      font-weight: 600;
-    }
-
-    .tracker-metrics-side {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      justify-content: space-between;
-    }
-
-    .tracker-category-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-    }
-
-    .cat-stat-title {
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-subtle);
-      margin-bottom: 10px;
-    }
-
-    .cat-stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
-
-    .cat-stat-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 7px 10px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-size: 0.78rem;
-    }
-
-    .cat-stat-item:hover {
-      border-color: var(--border-accent);
-      background: var(--bg-subtle);
-      transform: translateY(-1px);
-    }
-
-    .cat-stat-left {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .cat-stat-badge {
-      font-size: 0.72rem;
-      font-weight: 700;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border);
-      padding: 1px 6px;
-      border-radius: var(--radius-full);
-      color: var(--text-muted);
-    }
-
-    .tracker-photo-status-card {
-      background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
-      border: 1px dashed rgba(2, 132, 199, 0.3);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .photo-status-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .media-stat-box {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      padding: 2px 4px;
-      border-radius: var(--radius-sm);
-      transition: all 0.2s ease;
-    }
-
-    .media-stat-box:hover .media-label {
-      color: var(--accent-blue);
-    }
-
-    .media-count {
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-
-    .media-label {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-
-    .photo-status-right {
-      font-size: 0.72rem;
-      color: var(--accent-emerald);
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    /* ─── Events Filter Toolbar ─── */
+    /* ─── Events Filter Tabs ─── */
     .events-filter-bar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 14px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .filter-group-primary {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .filter-group-secondary {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
+      margin-bottom: 28px;
     }
 
     .event-tab {
       background: var(--bg-surface);
       border: 1px solid var(--border);
       color: var(--text-muted);
-      font-size: 0.84rem;
+      font-size: 0.86rem;
       font-weight: 600;
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: var(--radius-full);
       cursor: pointer;
       transition: all 0.2s ease;
@@ -1737,51 +1455,11 @@
       background: rgba(255, 255, 255, 0.25);
     }
 
-    .event-filter-pill {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: var(--radius-full);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .event-filter-pill:hover {
-      border-color: var(--border-accent);
-      color: var(--text);
-    }
-
-    .event-filter-pill.active {
-      background: rgba(2, 132, 199, 0.1);
-      color: var(--accent-blue);
-      border-color: var(--border-accent);
-      font-weight: 700;
-    }
-
-    .events-active-indicator {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .events-active-indicator strong {
-      color: var(--text);
-    }
-
-    /* ─── Events Attended Grid & Cards ─── */
+    /* ─── Events Attended Grid ─── */
     .events-attended-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
       margin-bottom: 56px;
     }
 
@@ -1789,12 +1467,12 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
+      padding: 20px;
       box-shadow: var(--shadow-card);
       display: flex;
       flex-direction: column;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
-      overflow: hidden;
     }
 
     .event-attended-item:hover {
@@ -1805,11 +1483,12 @@
 
     .event-attended-item.has-photo {
       padding: 0;
+      overflow: hidden;
     }
 
     .event-attended-photo-wrap {
       position: relative;
-      height: 190px;
+      height: 180px;
       overflow: hidden;
       background: var(--bg-subtle);
     }
@@ -1827,85 +1506,15 @@
       transform: scale(1.05);
     }
 
-    .event-photo-overlay {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      right: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 2;
-    }
-
-    .event-photo-tag {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      background: rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 3px 8px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .event-attended-tracker-slot {
-      height: 50px;
-      background: linear-gradient(135deg, rgba(2, 132, 199, 0.04) 0%, rgba(99, 102, 241, 0.04) 100%);
-      border-bottom: 1px dashed var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 16px;
-    }
-
-    .tracker-slot-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .event-seq-pill {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: var(--accent-blue);
-      background: rgba(2, 132, 199, 0.1);
-      border: 1px solid rgba(2, 132, 199, 0.25);
-      padding: 2px 7px;
-      border-radius: var(--radius-sm);
-      letter-spacing: 0.02em;
-    }
-
-    .tracker-slot-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    .tracker-slot-status {
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: var(--radius-full);
-      white-space: nowrap;
-    }
-
-    .tracker-slot-status.verified {
-      color: #059669;
-      background: rgba(5, 150, 105, 0.08);
-      border: 1px solid rgba(5, 150, 105, 0.2);
-    }
-
     .event-attended-content {
-      padding: 18px 20px 20px;
+      padding: 0;
       display: flex;
       flex-direction: column;
       flex: 1;
+    }
+
+    .event-attended-item.has-photo .event-attended-content {
+      padding: 18px 20px 20px;
     }
 
     .event-item-top {
@@ -2196,10 +1805,6 @@
       .timeline-event-grid,
       .attended-grid {
         grid-template-columns: 1fr;
-      }
-      .events-tracker-dashboard {
-        grid-template-columns: 1fr;
-        gap: 20px;
       }
       .events-attended-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -3093,133 +2698,34 @@
       <div class="section-head">
         <div class="section-eyebrow">Ecosystem Participation</div>
         <h2 class="section-title">Events, Hackathons & Conferences Attended</h2>
-        <p class="section-desc">Active chronological tracker of developer conferences, hackathons, and Apple ecosystem meetups attended across 2024–2026.</p>
+        <p class="section-desc">Chronological timeline of developer conferences, hackathons, and Apple ecosystem meetups attended across 2024–2026.</p>
       </div>
 
-      <!-- Master Event Attendance Tracker Dashboard -->
-      <div class="events-tracker-dashboard">
-        <div class="tracker-main-card">
-          <div>
-            <div class="tracker-header-badge">
-              <span class="pulse-dot"></span> Active Attendance Tracker
-            </div>
-            <div class="tracker-big-stat">
-              <span class="tracker-number">25</span>
-              <div class="tracker-stat-meta">
-                <span class="tracker-label">Total Events Attended</span>
-                <span class="tracker-sub">2024 — 2026 Developer Timeline • Bengaluru & National Ecosystem</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="tracker-quick-stats">
-            <div class="t-stat-pill" onclick="filterEvents('2026', document.getElementById('tab-2026'))" role="button" tabindex="0" title="Click to filter 2026 events">
-              <span class="t-stat-year">2026</span>
-              <span class="t-stat-num">12</span>
-              <span class="t-stat-tag">Active Year ↗</span>
-            </div>
-            <div class="t-stat-pill" onclick="filterEvents('2025', document.getElementById('tab-2025'))" role="button" tabindex="0" title="Click to filter 2025 events">
-              <span class="t-stat-year">2025</span>
-              <span class="t-stat-num">10</span>
-              <span class="t-stat-tag">Milestones ↗</span>
-            </div>
-            <div class="t-stat-pill" onclick="filterEvents('2024', document.getElementById('tab-2024'))" role="button" tabindex="0" title="Click to filter 2024 events">
-              <span class="t-stat-year">2024</span>
-              <span class="t-stat-num">3</span>
-              <span class="t-stat-tag">Foundations ↗</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="tracker-metrics-side">
-          <div class="tracker-category-card">
-            <div class="cat-stat-title">Ecosystem Focus Breakdown</div>
-            <div class="cat-stat-grid">
-              <div class="cat-stat-item" onclick="filterCategory('apple', document.getElementById('cat-apple'))" role="button" tabindex="0">
-                <div class="cat-stat-left"><span>🍏</span> <span>Apple & WWDC</span></div>
-                <span class="cat-stat-badge">6</span>
-              </div>
-              <div class="cat-stat-item" onclick="filterCategory('swift', document.getElementById('cat-swift'))" role="button" tabindex="0">
-                <div class="cat-stat-left"><span>⚡️</span> <span>Swift Community</span></div>
-                <span class="cat-stat-badge">7</span>
-              </div>
-              <div class="cat-stat-item" onclick="filterCategory('ai', document.getElementById('cat-ai'))" role="button" tabindex="0">
-                <div class="cat-stat-left"><span>🤖</span> <span>AI & Hackathons</span></div>
-                <span class="cat-stat-badge">5</span>
-              </div>
-              <div class="cat-stat-item" onclick="filterCategory('summit', document.getElementById('cat-summit'))" role="button" tabindex="0">
-                <div class="cat-stat-left"><span>🌐</span> <span>Tech Summits & Design</span></div>
-                <span class="cat-stat-badge">7</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="tracker-photo-status-card">
-            <div class="photo-status-left">
-              <div class="media-stat-box" onclick="filterMedia('photo', document.getElementById('media-photo'))" role="button" tabindex="0" title="Filter events with attached photos">
-                <span class="media-icon">📸</span>
-                <span class="media-count">5</span>
-                <span class="media-label">Photos Attached</span>
-              </div>
-              <div class="media-stat-box" onclick="filterMedia('photo-ready', document.getElementById('media-ready'))" role="button" tabindex="0" title="Filter items awaiting photos">
-                <span class="media-icon">📷</span>
-                <span class="media-count">20</span>
-                <span class="media-label">Photo Slots Ready</span>
-              </div>
-            </div>
-            <div class="photo-status-right">
-              <span>✨ Gallery Expanding</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Interactive Filter Toolbar (Year + Category + Media) -->
+      <!-- Interactive Year Filter Tabs -->
       <div class="events-filter-bar">
-        <div class="filter-group-primary">
-          <button class="event-tab active" id="tab-all" onclick="filterEvents('all', this)">
-            <span>All Events</span>
-            <span class="event-tab-count">25</span>
-          </button>
-          <button class="event-tab" id="tab-2026" onclick="filterEvents('2026', this)">
-            <span>2026</span>
-            <span class="event-tab-count">12</span>
-          </button>
-          <button class="event-tab" id="tab-2025" onclick="filterEvents('2025', this)">
-            <span>2025</span>
-            <span class="event-tab-count">10</span>
-          </button>
-          <button class="event-tab" id="tab-2024" onclick="filterEvents('2024', this)">
-            <span>2024</span>
-            <span class="event-tab-count">3</span>
-          </button>
-        </div>
-
-        <div class="filter-group-secondary">
-          <button class="event-filter-pill event-cat-filter active" id="cat-all" onclick="filterCategory('all', this)">All Types</button>
-          <button class="event-filter-pill event-cat-filter" id="cat-apple" onclick="filterCategory('apple', this)">🍏 Apple (6)</button>
-          <button class="event-filter-pill event-cat-filter" id="cat-swift" onclick="filterCategory('swift', this)">⚡️ Swift (7)</button>
-          <button class="event-filter-pill event-cat-filter" id="cat-ai" onclick="filterCategory('ai', this)">🤖 AI (5)</button>
-          <button class="event-filter-pill event-cat-filter" id="cat-summit" onclick="filterCategory('summit', this)">🌐 Summits (7)</button>
-          <button class="event-filter-pill event-media-filter" id="media-photo" onclick="filterMedia('photo', this)">📸 Photos (5)</button>
-          <button class="event-filter-pill event-media-filter" id="media-ready" onclick="filterMedia('photo-ready', this)">📷 Photo Slots (20)</button>
-        </div>
-      </div>
-
-      <!-- Dynamic Active Indicator -->
-      <div class="events-active-indicator">
-        Showing <strong id="visibleCountText">25 of 25 tracked events</strong> across all categories
+        <button class="event-tab active" onclick="filterEvents('all', this)">
+          <span>All Events</span>
+          <span class="event-tab-count">25</span>
+        </button>
+        <button class="event-tab" onclick="filterEvents('2026', this)">
+          <span>2026</span>
+          <span class="event-tab-count">12</span>
+        </button>
+        <button class="event-tab" onclick="filterEvents('2025', this)">
+          <span>2025</span>
+          <span class="event-tab-count">10</span>
+        </button>
+        <button class="event-tab" onclick="filterEvents('2024', this)">
+          <span>2024</span>
+          <span class="event-tab-count">3</span>
+        </button>
       </div>
 
       <div class="events-attended-grid">
       <!-- Bengaluru Tech Week 2026 -->
-      <article class="event-attended-item has-photo" data-year="2026" data-category="summit" data-has-photo="true">
+      <article class="event-attended-item has-photo" data-year="2026">
         <div class="event-attended-photo-wrap">
           <img src="assets/community/bengaluru-tech-week.png" alt="Bengaluru Tech Week 2026" class="event-attended-photo" loading="lazy">
-          <div class="event-photo-overlay">
-            <span class="event-seq-pill">#25</span>
-            <span class="event-photo-tag">📸 Photo Attached</span>
-          </div>
         </div>
         <div class="event-attended-content">
           <div class="event-item-top">
@@ -3239,13 +2745,9 @@
       </article>
 
 <!-- Techie Thursdays @ Metaforms AI -->
-      <article class="event-attended-item has-photo" data-year="2026" data-category="ai" data-has-photo="true">
+      <article class="event-attended-item has-photo" data-year="2026">
         <div class="event-attended-photo-wrap" style="background: #262A2E;">
           <img src="assets/community/metaforms-ai-pass.png" alt="Techie Thursdays @ Metaforms AI - Rahul Goel" class="event-attended-photo" style="object-fit: contain;" loading="lazy">
-          <div class="event-photo-overlay">
-            <span class="event-seq-pill">#24</span>
-            <span class="event-photo-tag">📸 Pass Attached</span>
-          </div>
         </div>
         <div class="event-attended-content">
           <div class="event-item-top">
@@ -3265,13 +2767,9 @@
       </article>
 
       <!-- Google I/O Connect | India 2026 -->
-      <article class="event-attended-item has-photo" data-year="2026" data-category="summit" data-has-photo="true">
+      <article class="event-attended-item has-photo" data-year="2026">
         <div class="event-attended-photo-wrap">
           <img src="assets/community/google-io-connect-2026.jpg" alt="Rahul Goel at Google I/O Connect India 2026" class="event-attended-photo" style="object-position: center 25%;" loading="lazy">
-          <div class="event-photo-overlay">
-            <span class="event-seq-pill">#23</span>
-            <span class="event-photo-tag">📸 Photo Attached</span>
-          </div>
         </div>
         <div class="event-attended-content">
           <div class="event-item-top">
@@ -3291,17 +2789,7 @@
       </article>
 
       <!-- Bangalore Config Watch Party 2026 (Figma) -->
-      <article class="event-attended-item" data-year="2026" data-category="design" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#22</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2026">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge design">Design & UX</span>
@@ -3314,23 +2802,12 @@
           <p class="event-item-desc">Community gathering exploring design systems, Figma AI features, and seamless design-to-code engineer workflows.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Config WatchParty</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Apple Dev Center : Bengaluru WWDC 2026 -->
-      <article class="event-attended-item" data-year="2026" data-category="apple" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#21</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2026">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge apple">Apple Dev Center</span>
@@ -3343,23 +2820,12 @@
           <p class="event-item-desc">Official Apple Developer Center gathering exploring latest Swift paradigms, iOS SDK enhancements, and platform APIs.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Apple Dev Center</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- WWDC 2026 Keynote & SOTU WatchParty -->
-      <article class="event-attended-item" data-year="2026" data-category="apple" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#20</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2026">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge apple">Apple & WWDC</span>
@@ -3372,23 +2838,12 @@
           <p class="event-item-desc">Engineering watch party for Apple Worldwide Developers Conference keynote and State of the Union with fellow tech leads.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Swiggy HO</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- New Relic Advance Bengaluru 2026 -->
-      <article class="event-attended-item" data-year="2026" data-category="summit" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#19</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2026">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge summit">Observability & Tech</span>
@@ -3401,19 +2856,14 @@
           <p class="event-item-desc">Sessions on full-stack observability, real-time client telemetry, crash triage, and runtime performance instrumentation.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">New Relic Advance</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Paytm AI Hackathon 2026 (#BuildforIndia) -->
-      <article class="event-attended-item has-photo" data-year="2026" data-category="ai" data-has-photo="true">
+      <article class="event-attended-item has-photo" data-year="2026">
         <div class="event-attended-photo-wrap">
           <a href="https://x.com/therahulgoel/status/2035196998039798068" target="_blank" rel="noopener"><img src="assets/community/paytm-hackathon.jpg" alt="Paytm AI Hackathon 2026 (#BuildforIndia)" class="event-attended-photo" loading="lazy"></a>
-          <div class="event-photo-overlay">
-            <span class="event-seq-pill">#18</span>
-            <span class="event-photo-tag">📸 Photo Attached</span>
-          </div>
         </div>
         <div class="event-attended-content">
           <div class="event-item-top">
@@ -3433,17 +2883,7 @@
       </article>
 
       <!-- IISc Open Day 2026 -->
-      <article class="event-attended-item" data-year="2026" data-category="ai" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#17</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2026">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge ai">Science & Research</span>
@@ -3456,23 +2896,12 @@
           <p class="event-item-desc">Exploring bleeding-edge computing research, machine intelligence demonstrations, and robotics at India’s premier institute.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">IISc Bengaluru</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- OpenAI Codex Community Meetup -->
-      <article class="event-attended-item" data-year="2026" data-category="ai" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#16</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2026">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge ai">AI & Codex</span>
@@ -3485,23 +2914,12 @@
           <p class="event-item-desc">Peer discussions on LLM-driven coding agents, Model Context Protocol (MCP), and automated refactoring pipelines.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">OpenAI Codex Meetup</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Swift Bengaluru x Meesho -->
-      <article class="event-attended-item" data-year="2026" data-category="swift" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#15</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2026">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge swift">Swift Community</span>
@@ -3514,23 +2932,12 @@
           <p class="event-item-desc">Mobile architecture exchange covering modular design, Swift Concurrency adoption, and app startup optimization.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Meesho Campus</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Swift Developer Meetup @ CMRIT -->
-      <article class="event-attended-item" data-year="2026" data-category="swift" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#14</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2026">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge swift">Swift Community</span>
@@ -3543,23 +2950,12 @@
           <p class="event-item-desc">Technical meetup discussing Swift modern concurrency, Instruments memory profiling, and mobile engineering best practices.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">CMRIT Bengaluru</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Swift Bharat 2025 -->
-      <article class="event-attended-item" data-year="2025" data-category="swift" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#13</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2025">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge swift">National Conference</span>
@@ -3572,23 +2968,12 @@
           <p class="event-item-desc">India’s premier community conference for Apple platform developers, featuring deep-dives into modern Swift and architecture.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Swift Bharat</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Google I/O Connect | India 2025 -->
-      <article class="event-attended-item" data-year="2025" data-category="summit" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#12</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2025">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge summit">Developer Summit</span>
@@ -3601,23 +2986,12 @@
           <p class="event-item-desc">Hands-on technical sessions on cloud architectures, mobile performance, and generative AI toolchains.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Google I/O Connect</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Hackathon Demo Day @ Kanini -->
-      <article class="event-attended-item" data-year="2025" data-category="ai" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#11</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2025">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge ai">Hackathon Demo</span>
@@ -3630,23 +3004,12 @@
           <p class="event-item-desc">Showcasing working prototypes, system designs, and automated mobile workflows at the Kanini hackathon showcase.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Kanini Software</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Beyond WWDC 25 at Meesho -->
-      <article class="event-attended-item" data-year="2025" data-category="swift" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#10</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2025">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge swift">Tech Community</span>
@@ -3659,23 +3022,12 @@
           <p class="event-item-desc">Post-WWDC engineering roundtable analyzing new iOS SDK APIs, SwiftUI enhancements, and platform migration strategies.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Meesho Bengaluru</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Apple Dev Center : Bengaluru WWDC 2025 -->
-      <article class="event-attended-item" data-year="2025" data-category="apple" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#09</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2025">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge apple">Apple Dev Center</span>
@@ -3688,23 +3040,12 @@
           <p class="event-item-desc">Official Apple Developer Center post-keynote labs and engineering sessions exploring WWDC25 releases.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Apple Dev Center</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- WWDC25 Keynote & SOTU WatchParty -->
-      <article class="event-attended-item" data-year="2025" data-category="apple" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#08</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2025">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge apple">Apple & WWDC</span>
@@ -3717,23 +3058,12 @@
           <p class="event-item-desc">Community watch party at Swiggy HO analyzing Apple’s annual keynote and developer platform advancements.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Swiggy HO</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Figma Config 2025 Watch Party -->
-      <article class="event-attended-item" data-year="2025" data-category="design" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#07</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2025">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge design">Design & UX</span>
@@ -3746,19 +3076,14 @@
           <p class="event-item-desc">Figma annual global conference watch party exploring design systems, variables, and cross-functional handoff.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Config WatchParty</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Swift Developers Meetup @ Motive -->
-      <article class="event-attended-item has-photo" data-year="2025" data-category="swift" data-has-photo="true">
+      <article class="event-attended-item has-photo" data-year="2025">
         <div class="event-attended-photo-wrap">
           <a href="https://x.com/therahulgoel/status/1926547112050794815" target="_blank" rel="noopener"><img src="assets/community/swiftbengaluru-panel.jpg" alt="Swift Developers Meetup @ Motive" class="event-attended-photo" loading="lazy"></a>
-          <div class="event-photo-overlay">
-            <span class="event-seq-pill">#06</span>
-            <span class="event-photo-tag">📸 Photo Attached</span>
-          </div>
         </div>
         <div class="event-attended-content">
           <div class="event-item-top">
@@ -3778,17 +3103,7 @@
       </article>
 
       <!-- Uber Mobi Conf 2025 -->
-      <article class="event-attended-item" data-year="2025" data-category="summit" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#05</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2025">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge summit">Mobile Conference</span>
@@ -3801,23 +3116,12 @@
           <p class="event-item-desc">Flagship mobile engineering conference at Uber covering large-scale app performance, networking, and platform resiliency.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Uber Mobi Conf</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Apple Dev Center : Enhance Apps with Apple Intelligence -->
-      <article class="event-attended-item" data-year="2025" data-category="apple" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#04</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2025">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge apple">Apple Dev Center</span>
@@ -3830,23 +3134,12 @@
           <p class="event-item-desc">In-depth engineering workshop on integrating on-device Apple Intelligence, App Intents, and Core ML into iOS apps.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Apple Dev Center</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Swift Developers Meetup @ Greenlight -->
-      <article class="event-attended-item" data-year="2024" data-category="swift" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#03</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2024">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge swift">Swift Community</span>
@@ -3859,23 +3152,12 @@
           <p class="event-item-desc">Community meetup exploring Swift 6 preparation, data-race safety, and modern architecture patterns.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Greenlight Bengaluru</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Apple Dev Center : Bengaluru WWDC 2024 -->
-      <article class="event-attended-item" data-year="2024" data-category="apple" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#02</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2024">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge apple">Apple Dev Center</span>
@@ -3888,23 +3170,12 @@
           <p class="event-item-desc">Apple Developer Center event celebrating WWDC24 launches, SwiftData, and spatial computing platform APIs.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Apple Dev Center</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
 
       <!-- Swift Developers Meetup @ Navi -->
-      <article class="event-attended-item" data-year="2024" data-category="swift" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
-            <span class="event-seq-pill">#01</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
-          </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
-        </div>
+      <article class="event-attended-item" data-year="2024">
         <div class="event-attended-content">
           <div class="event-item-top">
             <span class="event-cat-badge swift">Swift Community</span>
@@ -3917,7 +3188,6 @@
           <p class="event-item-desc">Technical meetup at Navi covering fintech app architecture, modular dependency injection, and startup latency reduction.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Navi Bengaluru</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
           </div>
         </div>
       </article>
@@ -4108,82 +3378,21 @@
       }
     }
 
-        // ─── Events Attended Multi-dimensional Filter Logic ───
-    let currentEventYear = 'all';
-    let currentEventCat = 'all';
-    let currentEventMedia = 'all';
+    // ─── Events Attended Year Filter Logic ───
+    function filterEvents(year, button) {
+      document.querySelectorAll('.event-tab').forEach(t => t.classList.remove('active'));
+      if (button) button.classList.add('active');
 
-    function updateEventFilters() {
       const items = document.querySelectorAll('.event-attended-item');
-      let visibleCount = 0;
-
       items.forEach(item => {
-        const itemYear = item.getAttribute('data-year');
-        const itemCat = item.getAttribute('data-category');
-        const hasPhoto = item.getAttribute('data-has-photo') === 'true';
-
-        // Check Year match
-        const matchYear = (currentEventYear === 'all' || itemYear === currentEventYear);
-        
-        // Check Category match (summit also covers design)
-        let matchCat = (currentEventCat === 'all');
-        if (currentEventCat === 'apple') matchCat = (itemCat === 'apple');
-        else if (currentEventCat === 'swift') matchCat = (itemCat === 'swift');
-        else if (currentEventCat === 'ai') matchCat = (itemCat === 'ai');
-        else if (currentEventCat === 'summit') matchCat = (itemCat === 'summit' || itemCat === 'design');
-        
-        // Check Media match
-        let matchMedia = true;
-        if (currentEventMedia === 'photo') matchMedia = hasPhoto;
-        else if (currentEventMedia === 'photo-ready') matchMedia = !hasPhoto;
-
-        if (matchYear && matchCat && matchMedia) {
+        if (year === 'all' || item.getAttribute('data-year') === year) {
           item.style.display = 'flex';
-          visibleCount++;
         } else {
           item.style.display = 'none';
         }
       });
-
-      const countEl = document.getElementById('visibleCountText');
-      if (countEl) {
-        let descriptor = `${visibleCount} of 25 tracked events`;
-        if (currentEventYear !== 'all') descriptor += ` (${currentEventYear})`;
-        if (currentEventCat !== 'all') {
-          const catLabels = { apple: 'Apple & WWDC', swift: 'Swift Community', ai: 'AI & Hackathons', summit: 'Tech Summits & Design' };
-          descriptor += ` • ${catLabels[currentEventCat] || currentEventCat}`;
-        }
-        if (currentEventMedia === 'photo') descriptor += ` • Photos Attached`;
-        else if (currentEventMedia === 'photo-ready') descriptor += ` • Photo Slots Ready`;
-        countEl.textContent = descriptor;
-      }
     }
 
-    function filterEvents(year, button) {
-      currentEventYear = year;
-      document.querySelectorAll('.event-tab').forEach(t => t.classList.remove('active'));
-      if (button) button.classList.add('active');
-      updateEventFilters();
-    }
-
-    function filterCategory(cat, button) {
-      currentEventCat = cat;
-      document.querySelectorAll('.event-cat-filter').forEach(t => t.classList.remove('active'));
-      if (button) button.classList.add('active');
-      updateEventFilters();
-    }
-
-    function filterMedia(media, button) {
-      if (currentEventMedia === media && media !== 'all') {
-        currentEventMedia = 'all';
-        if (button) button.classList.remove('active');
-      } else {
-        currentEventMedia = media;
-        document.querySelectorAll('.event-media-filter').forEach(t => t.classList.remove('active'));
-        if (button && media !== 'all') button.classList.add('active');
-      }
-      updateEventFilters();
-    }
   </script>
 
 </body>
