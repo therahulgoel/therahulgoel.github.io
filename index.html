@@ -3101,12 +3101,12 @@
             <div class="photo-status-left">
               <div class="media-stat-box" onclick="filterMedia('photo', document.getElementById('media-photo'))" role="button" tabindex="0" title="Filter events with attached photos">
                 <span class="media-icon">📸</span>
-                <span class="media-count">3</span>
+                <span class="media-count">4</span>
                 <span class="media-label">Photos Attached</span>
               </div>
               <div class="media-stat-box" onclick="filterMedia('photo-ready', document.getElementById('media-ready'))" role="button" tabindex="0" title="Filter items awaiting photos">
                 <span class="media-icon">📷</span>
-                <span class="media-count">21</span>
+                <span class="media-count">20</span>
                 <span class="media-label">Photo Slots Ready</span>
               </div>
             </div>
@@ -3144,8 +3144,8 @@
           <button class="event-filter-pill event-cat-filter" id="cat-swift" onclick="filterCategory('swift', this)">⚡️ Swift (7)</button>
           <button class="event-filter-pill event-cat-filter" id="cat-ai" onclick="filterCategory('ai', this)">🤖 AI (4)</button>
           <button class="event-filter-pill event-cat-filter" id="cat-summit" onclick="filterCategory('summit', this)">🌐 Summits (7)</button>
-          <button class="event-filter-pill event-media-filter" id="media-photo" onclick="filterMedia('photo', this)">📸 Photos (3)</button>
-          <button class="event-filter-pill event-media-filter" id="media-ready" onclick="filterMedia('photo-ready', this)">📷 Photo Slots (21)</button>
+          <button class="event-filter-pill event-media-filter" id="media-photo" onclick="filterMedia('photo', this)">📸 Photos (4)</button>
+          <button class="event-filter-pill event-media-filter" id="media-ready" onclick="filterMedia('photo-ready', this)">📷 Photo Slots (20)</button>
         </div>
       </div>
 
@@ -3182,16 +3182,13 @@
       </article>
 
       <!-- Google I/O Connect | India 2026 -->
-      <article class="event-attended-item" data-year="2026" data-category="summit" data-has-photo="false">
-        <div class="event-attended-tracker-slot">
-          <div class="tracker-slot-left">
+      <article class="event-attended-item has-photo" data-year="2026" data-category="summit" data-has-photo="true">
+        <div class="event-attended-photo-wrap">
+          <img src="assets/community/google-io-connect-2026.jpg" alt="Rahul Goel at Google I/O Connect India 2026" class="event-attended-photo" style="object-position: center 25%;" loading="lazy">
+          <div class="event-photo-overlay">
             <span class="event-seq-pill">#23</span>
-            <div class="tracker-slot-label">
-              <span class="slot-icon">📷</span>
-              <span class="slot-text">Photo Slot Ready</span>
-            </div>
+            <span class="event-photo-tag">📸 Photo Attached</span>
           </div>
-          <span class="tracker-slot-status verified">🟢 Verified</span>
         </div>
         <div class="event-attended-content">
           <div class="event-item-top">
@@ -3205,7 +3202,7 @@
           <p class="event-item-desc">Deep-dive sessions on generative AI APIs, modern web/mobile standards, and developer productivity tooling.</p>
           <div class="event-item-footer">
             <span class="tag" style="background: var(--bg-subtle); color: var(--text-subtle); border-color: var(--border);">Google I/O Connect</span>
-            <span class="tracker-slot-note">📷 Photo slot ready</span>
+            <span class="tracker-slot-status verified">🟢 Verified</span>
           </div>
         </div>
       </article>
