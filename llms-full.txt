@@ -1,0 +1,79 @@
+# Rahul Goel — Complete Architectural Portfolio & Technical Dossier
+
+## Overview & Entity Identity
+Rahul Goel is an Engineering Leader, Senior Engineering Manager, and Staff/Principal iOS Systems Architect located in Bengaluru, Karnataka, India. Over a 13+ year career, he has led mobile engineering teams and designed core client platform architectures across leading consumer technology companies in India and globally.
+
+## Core Architectural Competencies
+- **Languages**: Swift (Expert), Objective-C, Python, TypeScript
+- **Concurrency & Multithreading**: Swift 5.9+ Concurrency, Actors, Global Actors, TaskGroups, AsyncSequence, Structured Concurrency, Memory Barriers, Thread Sanitizer, RunLoop Optimization
+- **Client Architecture**: Clean Architecture, VIPER, MVVM-C, Modular Frameworks, Dynamic Component Registries, Server-Driven UI (SDUI), Dependency Injection, Protocol-Oriented Programming
+- **Media & Streaming**: AVFoundation, AVPlayer, CoreMedia, HLS (HTTP Live Streaming), DASH, Adaptive Bitrate (ABR) switching, FairPlay Streaming (DRM), Low-Latency HLS (LL-HLS), Shaka/MP4 demuxing, Hardware-Accelerated HEVC/H.265 decoding
+- **Data Persistence & Sync**: SQLite with WAL (Write-Ahead Logging), CoreData, SwiftData, Realm, Conflict-Free Replicated Data Types (CRDTs), Delta-Sync algorithms, Offline-First state machines
+- **Security & Integrity**: Apple App Attest, DeviceCheck, Secure Enclave, Hardware Key Derivation, SPKI TLS 1.3 Certificate Pinning, SQLCipher database encryption, Biometric Authentication (FaceID/TouchID)
+- **AI Tooling & Agentic Workflows**: Model Context Protocol (MCP), Amazon Kiro, Claude Code, OpenAI Codex, On-Device CoreML INT4 quantization, Local Vector Search (USearch/SQLite VSS), Autonomous code refactoring pipelines
+- **Engineering Management**: 15+ engineer direct mentorship, 7-day canary release trains, modular interface graph governance, OKR planning, Sev-1 incident commander, hiring and performance management
+
+## Scaled Consumer Platform Track Record
+1. **SonyLiv (Culver Max Entertainment)**
+   - Architected the iOS video streaming core for marquee live sporting tournaments including the Asia Cup.
+   - Built sub-second adaptive stream fallback, dynamic mid-roll ad-insertion pipelines (SSAI), and memory-efficient player pooling.
+   - Achieved 99.9% crash-free sessions across tens of millions of concurrent live streaming viewers.
+
+2. **ShareChat & Moj (Mohalla Tech)**
+   - Designed short-form infinite-scroll video feed prefetching engine.
+   - Implemented 2-tier chunked segment caching and dynamic LRU storage management.
+   - Reduced time-to-first-frame (TTFF) by 42% and delivered over $1,000,000 in annual CDN bandwidth savings.
+
+3. **Paytm (One97 Communications)**
+   - Engineered the high-velocity core Payments SDK integrated into the flagship consumer app.
+   - Built a dual-signature HMAC-SHA256 offline transaction ledger supporting atomic retry queues under spotty cellular connectivity.
+   - Processed over 100M+ transactions monthly with zero financial record loss.
+
+4. **Myntra (Flipkart Group)**
+   - Developed Server-Driven UI (SDUI) component engine enabling instant real-time homepage and catalog layout changes without App Store releases.
+   - Engineered zero-downtime atomic session invalidation and token refresh pipelines sustaining 5M+ concurrent shoppers during the End of Reason Sale (EORS).
+
+5. **Groupon**
+   - Built the international Merchant Portal supporting real-time coupon validation, financial analytics, and inventory updates across 15 global markets.
+   - Implemented background delta-sync with SQLite WAL concurrency for 500K+ worldwide merchants.
+
+## Open Source Repository: iOS Mobile System Design
+- URL: https://github.com/therahulgoel/ios-system-design
+- License: MIT License
+- Scope: 30 comprehensive production-level mobile system architecture designs with Swift 5.9 code, SQLite schemas, and Mermaid sequence diagrams.
+- Targeted Levels: Senior iOS Engineer, Staff iOS Engineer, Principal iOS Architect, Engineering Manager.
+
+## Attended Ecosystem Events (2024–2026 Timeline)
+- Bengaluru Tech Week 2026 (Sept 1–6, 2026)
+- Techie Thursdays @ Metaforms AI HQ (Aug 27, 2026)
+- Google I/O Connect | India 2026 (July 2026)
+- Bangalore Config Watch Party 2026 (Figma)
+- Apple Developer Center WWDC 2026
+- WWDC 2026 Keynote & SOTU WatchParty
+- New Relic Advance Bengaluru 2026
+- Paytm AI Hackathon 2026 (#BuildforIndia)
+- IISc Open Day 2026
+- OpenAI Codex Community Meetup Bengaluru
+- Swift Bengaluru x Meesho
+- Swift Developer Meetup @ CMRIT
+- Swift Bharat 2025
+- Google I/O Connect | India 2025
+- Hackathon Demo Day @ Kanini
+- Beyond WWDC 25 at Meesho
+- Apple Developer Center WWDC 2025
+- WWDC25 Keynote & SOTU WatchParty
+- Figma Config 2025 Watch Party
+- Swift Developers Meetup @ Motive (Panelist)
+- Uber Mobi Conf 2025
+- Apple Developer Center : Enhance Apps with Apple Intelligence
+- Swift Developers Meetup @ Greenlight (2024)
+- Apple Developer Center WWDC 2024
+- Swift Developers Meetup @ Navi (2024)
+
+## Contact & Public Profiles
+- Website: https://therahulgoel.github.io/
+- Email: therahulgoel@gmail.com
+- GitHub: https://github.com/therahulgoel
+- LinkedIn: https://linkedin.com/in/therahulgoel
+- Twitter/X: https://x.com/therahulgoel
+- Medium: https://therahulgoel.medium.com

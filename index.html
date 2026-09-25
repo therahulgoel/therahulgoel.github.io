@@ -13,6 +13,12 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://therahulgoel.github.io/">
   <link rel="icon" type="image/png" href="assets/rahul-goel.png">
+  <link rel="preload" href="assets/rahul-goel.png" as="image" type="image/png">
+  <link rel="author" href="https://therahulgoel.github.io/">
+  
+  <!-- LLM & Generative Engine Discovery (GEO) -->
+  <meta name="llms" content="https://therahulgoel.github.io/llms.txt">
+  <meta name="ai-content-declarations" content="https://therahulgoel.github.io/llms.txt">
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="profile">
@@ -32,24 +38,39 @@
   <meta name="twitter:description" content="13+ years scaling mobile platforms to 300M+ users across SonyLiv, ShareChat, Paytm, Groupon, and Myntra.">
   <meta name="twitter:image" content="https://therahulgoel.github.io/assets/rahul-goel.png">
 
-  <!-- JSON-LD Structured Data: Person & ProfilePage for AEO / GEO -->
+  <!-- JSON-LD Structured Data: Person, ProfilePage, SoftwareSourceCode, ItemList & FAQPage for SEO, AEO & GEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://therahulgoel.github.io/#website",
+        "url": "https://therahulgoel.github.io/",
+        "name": "Rahul Goel — Systems Architecture & Engineering Leadership",
+        "publisher": {
+          "@id": "https://therahulgoel.github.io/#person"
+        },
+        "inLanguage": "en-US",
+        "description": "Portfolio, open-source mobile system design specifications, and technical credentials of Rahul Goel."
+      },
       {
         "@type": "ProfilePage",
         "@id": "https://therahulgoel.github.io/#webpage",
         "url": "https://therahulgoel.github.io/",
         "name": "Rahul Goel — Senior Engineering Manager & iOS Systems Architect",
         "isPartOf": {
-          "@type": "WebSite",
-          "@id": "https://therahulgoel.github.io/#website",
-          "url": "https://therahulgoel.github.io/",
-          "name": "Rahul Goel Portfolio"
+          "@id": "https://therahulgoel.github.io/#website"
         },
         "about": {
           "@id": "https://therahulgoel.github.io/#person"
+        },
+        "mainEntity": {
+          "@id": "https://therahulgoel.github.io/#person"
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["#hero-bio", ".section-desc"]
         },
         "description": "Public profile and systems portfolio of Rahul Goel, Senior Engineering Manager scaling iOS platforms to 300M+ users."
       },
@@ -57,38 +78,42 @@
         "@type": "Person",
         "@id": "https://therahulgoel.github.io/#person",
         "name": "Rahul Goel",
-        "jobTitle": "Senior Engineering Manager",
-        "description": "Engineering Leader with 13+ years experience scaling iOS platforms to 300M+ users across streaming, fintech payments, and e-commerce.",
+        "givenName": "Rahul",
+        "familyName": "Goel",
+        "jobTitle": "Senior Engineering Manager & iOS Systems Architect",
+        "description": "Engineering Leader with 13+ years experience scaling iOS platforms to 300M+ users across streaming (SonyLiv, ShareChat), fintech payments (Paytm), and e-commerce (Myntra, Groupon).",
         "image": "https://therahulgoel.github.io/assets/rahul-goel.png",
         "url": "https://therahulgoel.github.io/",
-        "email": "therahulgoel@gmail.com",
+        "email": "mailto:therahulgoel@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Bengaluru",
           "addressRegion": "Karnataka",
-          "addressCountry": "India"
+          "addressCountry": "IN"
         },
         "alumniOf": {
           "@type": "EducationalOrganization",
-          "name": "Uttar Pradesh Technical University (UPTU)",
+          "name": "Dr. A.P.J. Abdul Kalam Technical University (UPTU)",
           "department": "Computer Science Engineering"
         },
         "worksFor": [
           {
             "@type": "Organization",
-            "name": "SonyLiv"
+            "name": "SonyLiv",
+            "url": "https://www.sonyliv.com/"
           }
         ],
         "knowsAbout": [
           "iOS Architecture",
-          "Swift",
-          "SwiftUI",
-          "Video Streaming Architecture (HLS/DASH)",
+          "Swift (Programming Language)",
+          "Swift Concurrency & Actors",
+          "SwiftUI & UIKit",
+          "Video Streaming Architecture (HLS/DASH/AVPlayer)",
           "Server-Driven UI (SDUI)",
-          "Fintech Payments SDK",
-          "Engineering Leadership & Mentorship",
+          "Fintech Payments SDK & Offline Ledgers",
+          "Engineering Leadership, Team Mentorship & Canary Releases",
           "Model Context Protocol (MCP)",
-          "Amazon Kiro"
+          "Amazon Kiro & Agentic Coding"
         ],
         "sameAs": [
           "https://linkedin.com/in/therahulgoel",
@@ -108,40 +133,105 @@
         "author": {
           "@id": "https://therahulgoel.github.io/#person"
         },
-        "description": "Comprehensive mobile system design preparation curriculum for Staff & Engineering Manager interviews featuring 30 production-grade architecture specs."
+        "description": "Comprehensive open-source curriculum for Senior, Staff iOS Engineers and Engineering Managers containing 30 production-grade architecture blueprints covering on-device AI, HLS streaming prefetch, offline CRDT sync, and security."
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://therahulgoel.github.io/#systems-list",
+        "name": "Production Systems Architecture Case Studies",
+        "description": "Architectural case studies engineered by Rahul Goel across top consumer technology platforms.",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Live Video Streaming Architecture at SonyLiv (Asia Cup, 99.9% crash-free sessions)"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "High-Throughput Video Pipeline & Prefetch at ShareChat/Moj ($1M+ annual bandwidth savings)"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Payments SDK & Offline Transaction Ledger at Paytm (100M+ monthly transactions)"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Server-Driven UI & Session Invalidation at Myntra (5M+ concurrent EORS users)"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Merchant Portal & Real-Time Sync at Groupon (500K+ global merchants)"
+          }
+        ]
       },
       {
         "@type": "FAQPage",
+        "@id": "https://therahulgoel.github.io/#faq",
         "mainEntity": [
           {
             "@type": "Question",
             "name": "Who is Rahul Goel?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Rahul Goel is a Senior Engineering Manager and iOS Systems Architect based in Bengaluru, India. He has 13+ years of experience scaling consumer mobile platforms to 300M+ users across SonyLiv, ShareChat, Paytm, Groupon, and Myntra."
+              "text": "Rahul Goel is a Senior Engineering Manager and iOS Systems Architect based in Bengaluru, India. He has 13+ years of experience scaling consumer mobile platforms to 300M+ users across SonyLiv, ShareChat, Moj, Paytm, Groupon, and Myntra."
             }
           },
           {
             "@type": "Question",
-            "name": "What are Rahul Goel's key engineering achievements?",
+            "name": "What are Rahul Goel's key engineering achievements and impact?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Rahul Goel architected video streaming infrastructure saving $1M+ annually for ShareChat/Moj, built payments SDKs processing 100M+ monthly transactions at Paytm, engineered zero-downtime session infrastructure for 5M+ concurrent users at Myntra EORS, and led the Asia Cup streaming platform at SonyLiv maintaining 99.9% crash-free sessions."
+              "text": "Rahul Goel architected video streaming infrastructure saving $1M+ annually for ShareChat/Moj, built payments SDKs processing 100M+ monthly transactions at Paytm, engineered zero-downtime session infrastructure for 5M+ concurrent users at Myntra EORS, and led the Asia Cup live cricket streaming core at SonyLiv maintaining 99.9% crash-free sessions."
             }
           },
           {
             "@type": "Question",
-            "name": "What technical stack does Rahul Goel specialize in?",
+            "name": "What mobile architecture and technical skills does Rahul Goel specialize in?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Rahul specializes in Swift, Modern Swift Concurrency, SwiftUI, UIKit, AVFoundation, Modular Clean Architecture, Server-Driven UI (SDUI), HLS/DASH live video streaming, AI-assisted development (Amazon Kiro, MCP, Claude Code), and mobile performance telemetry."
+              "text": "Rahul specializes in Swift, Modern Swift Concurrency (Actors, TaskGroups), SwiftUI, UIKit, AVFoundation live HLS streaming, Modular Clean Architecture, Server-Driven UI (SDUI), AI-assisted development (Amazon Kiro, Model Context Protocol MCP, Claude Code), and mobile performance telemetry."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I find Rahul Goel's open source iOS architecture work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rahul Goel created and maintains the open-source repository 'iOS Mobile System Design' on GitHub (https://github.com/therahulgoel/ios-system-design), featuring 30 production-grade architecture blueprints for Senior, Staff, and Engineering Manager roles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What speaking engagements and technical panels has Rahul Goel delivered?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rahul delivered a keynote on Performance, Network Efficiency & UX at Procore Technologies Bengaluru, and served as an invited panelist on AI developer workflows and Model Context Protocol (MCP) at the SwiftBengaluru community meetup hosted at Motive."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to contact or hire Rahul Goel for Engineering Leadership roles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rahul Goel can be contacted directly via email at therahulgoel@gmail.com, on LinkedIn at https://linkedin.com/in/therahulgoel, and on X at https://x.com/therahulgoel. His resume is available for download at https://therahulgoel.github.io/Rahul_Goel_Resume.pdf."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What books are in Rahul Goel's reading list?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Rahul maintains an interactive 3D virtual reading shelf at https://therahulgoel.github.io/books.html featuring 23 curated books across Tech Leadership (How Google Works, No Rules Rules), Sci-Fi (Project Hail Mary, The Three-Body Problem trilogy), Theoretical Physics (Relativity), Mindset (Man's Search for Meaning), and Indic Philosophy (Autobiography of a Yogi)."
             }
           }
         ]
       }
     ]
-  }
-  </script>
+  }  </script>
 
   <style>
     /* ─── CSS Variables: Light-First Modern Architecture ─── */
@@ -1766,7 +1856,7 @@
           <h1 class="hero-title">Rahul <span>Goel</span></h1>
           <p class="hero-subtitle">Senior Engineering Manager & iOS Systems Architect</p>
           
-          <p class="hero-summary">
+          <p class="hero-summary" id="hero-bio">
             Engineering Leader with <strong>13+ years</strong> scaling mobile & iOS platforms to <strong>300M+ users</strong> across video streaming, fintech payments, and high-velocity e-commerce. Specialized in building large-scale concurrent streaming pipelines, high-throughput payment SDKs, modular clean architecture, and AI-accelerated developer workflows. Led <strong>15+ engineers</strong> with proven business impact.
           </p>
 
@@ -1832,7 +1922,7 @@
         <!-- Clean Headshot Card -->
         <div class="hero-avatar-card">
           <div class="hero-photo-wrap">
-            <img src="assets/rahul-goel.png" alt="Rahul Goel Headshot" class="hero-photo">
+            <img src="assets/rahul-goel.png" alt="Rahul Goel — Senior Engineering Manager and iOS Systems Architect in Bengaluru" class="hero-photo" width="260" height="260" fetchpriority="high">
           </div>
           <div class="avatar-meta">
             <div class="avatar-name">Rahul Goel</div>

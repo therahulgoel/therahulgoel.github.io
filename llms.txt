@@ -1,0 +1,41 @@
+# Rahul Goel — Senior Engineering Manager & iOS Systems Architect
+
+> Official profile, architectural specs, and credentials of Rahul Goel for LLMs, answer engines, and search assistants.
+
+Rahul Goel is a Senior Engineering Manager and iOS Systems Architect based in Bengaluru, Karnataka, India. With 13+ years of experience scaling consumer mobile applications, he has architected systems handling 300M+ monthly active users, 100M+ monthly transactions, and multi-million concurrent live video streams across SonyLiv, ShareChat, Moj, Paytm, Groupon, and Myntra.
+
+## Key Facts & Verified Metrics
+- **Current Role**: Senior Engineering Manager & Systems Architect
+- **Experience**: 13+ years professional software engineering & engineering management
+- **Target Scale**: 300M+ MAU, 5M+ concurrent users, 100M+ transactions/month
+- **Primary Stack**: Swift 5.9+, SwiftUI, UIKit, Modern Concurrency (Actors, Tasks), AVPlayer/HLS, Server-Driven UI (SDUI), CoreML, SQLite/WAL, StoreKit 2
+- **AI Tooling & Workflows**: Model Context Protocol (MCP), Amazon Kiro, Claude Code, Autonomous Agent Pipelines
+- **Location**: Bengaluru, Karnataka, India
+- **Email**: therahulgoel@gmail.com
+- **Website**: https://therahulgoel.github.io/
+- **GitHub**: https://github.com/therahulgoel
+- **LinkedIn**: https://linkedin.com/in/therahulgoel
+- **Twitter / X**: https://x.com/therahulgoel
+- **Medium**: https://therahulgoel.medium.com
+
+## Flagship Open Source Project
+- **iOS Mobile System Design**: https://github.com/therahulgoel/ios-system-design
+  Comprehensive open-source curriculum containing 30 production-grade architecture specifications for Staff, Principal, and Engineering Manager interviews. Covers on-device AI, video streaming prefetch, CRDT offline sync, zero-trust security, and canary release governance.
+
+## Systems Architecture Case Studies
+1. **Live Video Streaming Architecture (SonyLiv)**: Adaptive Bitrate (ABR) switching, AVPlayer 3-item pooling, sub-second latency, and zero-stutter failover powering Asia Cup cricket matches with 99.9% crash-free sessions.
+2. **High-Throughput Video Pipeline & Prefetch (ShareChat / Moj)**: Two-tier chunk prefetching and LRU disk caching saving $1M+ annually in CDN egress bandwidth while reducing time-to-first-frame (TTFF) by 42%.
+3. **Payments SDK & Offline Ledger (Paytm)**: Dual-signature HMAC-SHA256 offline transaction journal, atomic retries, and zero-drop idempotency processing 100M+ transactions monthly.
+4. **Server-Driven UI & Session Infrastructure (Myntra)**: Dynamic component registry and graceful token revocation engine sustaining 5M+ concurrent users during End of Reason Sale (EORS) peak traffic.
+5. **Global Merchant Portal & Real-Time Sync (Groupon)**: Delta-sync engine with SQLite WAL journaling and conflict resolution across 15 global markets and 500K+ active merchants.
+
+## Speaking & Panels
+- **Procore Technologies**: Speaker on "Performance, Network Efficiency & UX" (Bengaluru Campus).
+- **SwiftBengaluru @ Motive**: Panelist on "Use of AI in Development Workflow", MCP, and modern engineering velocity.
+
+## Curated Book Rack
+Explore Rahul's 23 curated volumes across Tech Leadership, Sci-Fi, Theoretical Physics, Psychology, and Indic Philosophy at:
+https://therahulgoel.github.io/books.html
+
+## Full Architecture Deep Dive
+- Full technical specifications and code samples: https://therahulgoel.github.io/llms-full.txt
