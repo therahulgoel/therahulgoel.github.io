@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 48" fill="none">
+  <!-- ShareChat Logo: Modern brand identity -->
+  <g transform="translate(10, 8)">
+    <!-- Iconic multi-color pinwheel / teardrop emblem -->
+    <path d="M16 4C9.37 4 4 9.37 4 16C4 22.63 9.37 28 16 28C22.63 28 28 22.63 28 16C28 9.37 22.63 4 16 4Z" fill="#2563EB" opacity="0.1"/>
+    <path d="M16 6C10.5 6 6 10.5 6 16C6 18.2 6.7 20.2 8 21.8L6 26L10.5 24.2C12.1 25.3 14 26 16 26C21.5 26 26 21.5 26 16C26 10.5 21.5 6 16 6Z" fill="#2563EB"/>
+    <path d="M12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14Z" fill="#F97316"/>
+    <path d="M20 14C21.1 14 22 13.1 22 12C22 10.9 21.1 10 20 10C18.9 10 18 10.9 18 12C18 13.1 18.9 14 20 14Z" fill="#10B981"/>
+    <path d="M16 21C18.5 21 20.5 19.5 21 17.5H11C11.5 19.5 13.5 21 16 21Z" fill="#FFFFFF"/>
+  </g>
+  <text x="48" y="31" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="20" fill="#1E293B" letter-spacing="-0.5">ShareChat</text>
+</svg>
