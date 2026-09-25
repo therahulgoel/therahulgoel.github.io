@@ -474,35 +474,60 @@
       border-radius: var(--radius-full);
     }
 
-    /* ─── 3D Virtual Bookshelf View ─── */
+    /* ─── Front-Facing 3D Books on Rack View ─── */
     .bookshelf-rack {
       display: flex;
       flex-direction: column;
-      gap: 48px;
+      gap: 52px;
       margin-bottom: 64px;
-      perspective: 1200px;
     }
 
     .shelf-tier {
       position: relative;
-      padding: 0 20px 24px;
+      padding: 0 16px 22px;
+      transition: all 0.3s ease;
+    }
+
+    .shelf-tier-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-subtle);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .shelf-tier-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      opacity: 0.8;
     }
 
     .shelf-row {
       display: flex;
       align-items: flex-end;
-      gap: 12px;
-      padding-bottom: 8px;
+      gap: 22px;
+      padding: 24px 14px 6px;
       overflow-x: auto;
       overflow-y: visible;
       scrollbar-width: none;
       -ms-overflow-style: none;
       min-height: 250px;
-      padding-top: 30px;
     }
 
     .shelf-row::-webkit-scrollbar {
       display: none;
+    }
+
+    @media (min-width: 992px) {
+      .shelf-row {
+        justify-content: center;
+      }
     }
 
     .shelf-plank {
@@ -510,11 +535,11 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 20px;
+      height: 22px;
       background: var(--shelf-wood);
       border-radius: 4px;
-      box-shadow: 0 10px 25px var(--shelf-shadow), inset 0 2px 0 rgba(255, 255, 255, 0.3);
-      border-bottom: 4px solid var(--shelf-edge);
+      box-shadow: 0 12px 28px var(--shelf-shadow), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+      border-bottom: 5px solid var(--shelf-edge);
       z-index: 1;
     }
 
@@ -525,57 +550,68 @@
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: bottom center;
       z-index: 2;
-    }
-
-    .shelf-book:hover {
-      transform: translateY(-24px) scale(1.04) rotate(-2deg);
-      z-index: 10;
-    }
-
-    .book-spine {
-      width: 44px;
-      height: 220px;
-      border-radius: 4px 6px 6px 4px;
-      box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.3), inset -3px 0 5px rgba(0, 0, 0, 0.25);
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: 14px 4px;
-      user-select: none;
-      transition: box-shadow 0.2s ease;
     }
 
-    .shelf-book:hover .book-spine {
-      box-shadow: 4px 16px 24px rgba(0, 0, 0, 0.4), inset -3px 0 5px rgba(0, 0, 0, 0.2);
+    .shelf-book:hover {
+      transform: translateY(-16px) scale(1.05);
+      z-index: 10;
     }
 
-    .spine-ribbon {
-      width: 14px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 2px;
-    }
-
-    .spine-title {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
+    .book-cover-3d {
+      width: 142px;
+      height: 215px;
+      position: relative;
+      border-radius: 2px 8px 8px 2px;
       overflow: hidden;
-      text-overflow: ellipsis;
-      max-height: 140px;
+      background: var(--bg-surface);
+      box-shadow: -4px 10px 22px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease;
+      border-right: 3px solid rgba(226, 232, 240, 0.85);
     }
 
-    .spine-author {
-      font-size: 0.62rem;
-      font-weight: 600;
-      opacity: 0.85;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    [data-theme="dark"] .book-cover-3d {
+      box-shadow: -4px 10px 24px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(0, 0, 0, 0.4);
+      border-right-color: rgba(51, 65, 85, 0.85);
+    }
+
+    .shelf-book:hover .book-cover-3d {
+      box-shadow: -8px 24px 34px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .book-cover-front-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .book-spine-crease {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(0, 0, 0, 0.22) 3%, 
+        transparent 8%, 
+        transparent 94%, 
+        rgba(0, 0, 0, 0.15) 100%
+      );
+    }
+
+    .book-page-edges {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0%, rgba(255, 255, 255, 0.15) 100%);
+      pointer-events: none;
     }
 
     .book-tooltip {
@@ -585,6 +621,7 @@
       transform: translateX(-50%);
       background: rgba(15, 23, 42, 0.95);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       color: #FFFFFF;
       padding: 8px 12px;
       border-radius: var(--radius-sm);
@@ -593,17 +630,25 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.2s ease, transform 0.2s ease;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
       z-index: 20;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
       border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
     }
 
     .shelf-book:hover .book-tooltip {
       opacity: 1;
       transform: translateX(-50%) translateY(-4px);
+    }
+
+    .tooltip-badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #38BDF8;
+      margin-top: 1px;
     }
 
     /* ─── Visual Card Grid View ─── */
@@ -944,15 +989,25 @@
         padding: 24px;
       }
       .shelf-row {
-        min-height: 220px;
+        min-height: 225px;
+        gap: 16px;
       }
-      .book-spine {
-        width: 36px;
+      .book-cover-3d {
+        width: 126px;
         height: 190px;
       }
     }
 
     @media (max-width: 540px) {
+      .book-cover-3d {
+        width: 112px;
+        height: 168px;
+      }
+      .shelf-row {
+        gap: 14px;
+        min-height: 200px;
+        padding: 18px 10px 6px;
+      }
       .books-grid {
         grid-template-columns: 1fr;
       }
@@ -1113,74 +1168,78 @@
     <section class="bookshelf-rack" id="shelfView">
       <!-- Shelf Tier 1 -->
       <div class="shelf-tier">
+        <div class="shelf-tier-label">Shelf 1 • Software Systems, AI & Tech Leadership</div>
         <div class="shelf-row">
           <div class="shelf-book" 
                data-id="how-google-works" 
                data-genre="tech" 
                data-title="How Google Works" 
-               data-author="Eric Schmidt & Jonathan Rosenberg" 
+               data-author="Eric Schmidt &amp; Jonathan Rosenberg" 
                data-cover="assets/books/how-google-works.jpg" 
-               data-badge="⚡️ Tech & Culture" 
+               data-badge="⚡️ Tech &amp; Culture" 
                data-takeaway="Building high-autonomy teams of smart creatives, speed over perfection, and scaling culture without bureaucracy." 
                data-quote="If you cannot innovate, you cannot win. Smart creatives thrive when freed from rigid top-down approvals." 
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
-               aria-label="How Google Works by Eric Schmidt & Jonathan Rosenberg">
-            <div class="book-spine" style="background-color: #1E3A8A; color: #FFFFFF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">How Google Works</span>
-              <span class="spine-author">Schmidt</span>
+               aria-label="How Google Works by Eric Schmidt &amp; Jonathan Rosenberg">
+            <div class="book-cover-3d">
+              <img src="assets/books/how-google-works.jpg" alt="How Google Works Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>How Google Works</strong>
-              <span>Eric Schmidt & Jonathan Rosenberg</span>
+              <span>Eric Schmidt &amp; Jonathan Rosenberg</span>
+              <span class="tooltip-badge">⚡️ Tech &amp; Culture</span>
             </div>
           </div>
           <div class="shelf-book" 
                data-id="no-rules-rules" 
                data-genre="tech" 
                data-title="No Rules Rules" 
-               data-author="Reed Hastings & Erin Meyer" 
+               data-author="Reed Hastings &amp; Erin Meyer" 
                data-cover="assets/books/no-rules-rules.jpg" 
                data-badge="🎬 High Performance" 
-               data-takeaway="Talent density, radical candor, and eliminating vacation & expense policies to maximize organizational velocity." 
+               data-takeaway="Talent density, radical candor, and eliminating vacation &amp; expense policies to maximize organizational velocity." 
                data-quote="Lead with context, not control. Highly talented people produce extraordinary results when given full autonomy." 
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
-               aria-label="No Rules Rules by Reed Hastings & Erin Meyer">
-            <div class="book-spine" style="background-color: #DC2626; color: #FFFFFF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">No Rules Rules</span>
-              <span class="spine-author">Hastings</span>
+               aria-label="No Rules Rules by Reed Hastings &amp; Erin Meyer">
+            <div class="book-cover-3d">
+              <img src="assets/books/no-rules-rules.jpg" alt="No Rules Rules Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>No Rules Rules</strong>
-              <span>Reed Hastings & Erin Meyer</span>
+              <span>Reed Hastings &amp; Erin Meyer</span>
+              <span class="tooltip-badge">🎬 High Performance</span>
             </div>
           </div>
           <div class="shelf-book" 
                data-id="algorithms-to-live-by" 
                data-genre="tech" 
                data-title="Algorithms to Live By" 
-               data-author="Brian Christian & Tom Griffiths" 
+               data-author="Brian Christian &amp; Tom Griffiths" 
                data-cover="assets/books/algorithms-to-live-by.jpg" 
                data-badge="💻 Computer Science" 
                data-takeaway="Applying optimal stopping (37% rule), LRU caching, scheduling, and explore-exploit tradeoffs to human decision-making." 
-               data-quote="Computer science is not just for machines—it provides optimal mathematical strategies for navigating life&#39;s complexity." 
+               data-quote="Computer science is not just for machines—it provides optimal mathematical strategies for navigating life&#x27;s complexity." 
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
-               aria-label="Algorithms to Live By by Brian Christian & Tom Griffiths">
-            <div class="book-spine" style="background-color: #0D9488; color: #FFFFFF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Algorithms to Live By</span>
-              <span class="spine-author">Christian</span>
+               aria-label="Algorithms to Live By by Brian Christian &amp; Tom Griffiths">
+            <div class="book-cover-3d">
+              <img src="assets/books/algorithms-to-live-by.jpg" alt="Algorithms to Live By Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>Algorithms to Live By</strong>
-              <span>Brian Christian & Tom Griffiths</span>
+              <span>Brian Christian &amp; Tom Griffiths</span>
+              <span class="tooltip-badge">💻 Computer Science</span>
             </div>
           </div>
           <div class="shelf-book" 
@@ -1189,235 +1248,22 @@
                data-title="The Almanack of Naval Ravikant" 
                data-author="Eric Jorgenson" 
                data-cover="assets/books/almanack-of-naval-ravikant.jpg" 
-               data-badge="💎 Leverage & Wealth" 
-               data-takeaway="Building specific knowledge, infinite leverage through code & media, high judgment, and peaceful compounding." 
+               data-badge="💎 Leverage &amp; Wealth" 
+               data-takeaway="Building specific knowledge, infinite leverage through code &amp; media, high judgment, and peaceful compounding." 
                data-quote="Code and media are permissionless leverage. You can multiply your effort a thousandfold while you sleep." 
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
                aria-label="The Almanack of Naval Ravikant by Eric Jorgenson">
-            <div class="book-spine" style="background-color: #334155; color: #F8FAFC;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">The Almanack of Naval Ravikant</span>
-              <span class="spine-author">Jorgenson</span>
+            <div class="book-cover-3d">
+              <img src="assets/books/almanack-of-naval-ravikant.jpg" alt="The Almanack of Naval Ravikant Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>The Almanack of Naval Ravikant</strong>
               <span>Eric Jorgenson</span>
-            </div>
-          </div>
-          <div class="shelf-book" 
-               data-id="project-hail-mary" 
-               data-genre="scifi" 
-               data-title="Project Hail Mary" 
-               data-author="Andy Weir" 
-               data-cover="assets/books/project-hail-mary.jpg" 
-               data-badge="🚀 Hard Sci-Fi" 
-               data-takeaway="First-principles physics problem solving, relentless resilience, and extraordinary cross-species scientific cooperation." 
-               data-quote="Human beings have a remarkable ability to accept the abnormal and make it normal through scientific deduction." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="Project Hail Mary by Andy Weir">
-            <div class="book-spine" style="background-color: #D97706; color: #FFFFFF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Project Hail Mary</span>
-              <span class="spine-author">Weir</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>Project Hail Mary</strong>
-              <span>Andy Weir</span>
-            </div>
-          </div>
-          <div class="shelf-book" 
-               data-id="three-body-problem" 
-               data-genre="scifi" 
-               data-title="The Three-Body Problem" 
-               data-author="Cixin Liu" 
-               data-cover="assets/books/three-body-problem.jpg" 
-               data-badge="🌌 Cosmic Sci-Fi" 
-               data-takeaway="First contact with an alien civilization enduring chaotic orbital mechanics, sparking unprecedented interstellar geopolitics." 
-               data-quote="The universe is a grand mystery, and humanity&#39;s insignificance within it is both terrifying and humbling." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="The Three-Body Problem by Cixin Liu">
-            <div class="book-spine" style="background-color: #1E293B; color: #38BDF8;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">The Three-Body Problem</span>
-              <span class="spine-author">Liu</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>The Three-Body Problem</strong>
-              <span>Cixin Liu</span>
-            </div>
-          </div>
-          <div class="shelf-book" 
-               data-id="dark-forest" 
-               data-genre="scifi" 
-               data-title="The Dark Forest" 
-               data-author="Cixin Liu" 
-               data-cover="assets/books/dark-forest.jpg" 
-               data-badge="🌲 Cosmic Sociology" 
-               data-takeaway="The Dark Forest theory of the cosmos: civilizations hide because survival demands preemptive strikes in silence." 
-               data-quote="The universe is a dark forest. Every civilization is an armed hunter stalking through the trees like a ghost." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="The Dark Forest by Cixin Liu">
-            <div class="book-spine" style="background-color: #064E3B; color: #F8FAFC;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">The Dark Forest</span>
-              <span class="spine-author">Liu</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>The Dark Forest</strong>
-              <span>Cixin Liu</span>
-            </div>
-          </div>
-          <div class="shelf-book" 
-               data-id="deaths-end" 
-               data-genre="scifi" 
-               data-title="Death&#39;s End" 
-               data-author="Cixin Liu" 
-               data-cover="assets/books/deaths-end.jpg" 
-               data-badge="⏳ Deep Time Epic" 
-               data-takeaway="Dimensional strikes, curvature propulsion, and the ultimate evolutionary fate of conscious civilizations across eons." 
-               data-quote="Weakness and ignorance are not barriers to survival, but arrogance is." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="Death&#39;s End by Cixin Liu">
-            <div class="book-spine" style="background-color: #4A044E; color: #FDE047;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Death's End</span>
-              <span class="spine-author">Liu</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>Death's End</strong>
-              <span>Cixin Liu</span>
-            </div>
-          </div>
-        </div>
-        <div class="shelf-plank"></div>
-      </div>
-
-      <!-- Shelf Tier 2 -->
-      <div class="shelf-tier">
-        <div class="shelf-row">
-          <div class="shelf-book" 
-               data-id="the-time-machine" 
-               data-genre="scifi" 
-               data-title="The Time Machine" 
-               data-author="H. G. Wells" 
-               data-cover="assets/books/the-time-machine.jpg" 
-               data-badge="🕰 Classic Sci-Fi" 
-               data-takeaway="The foundational temporal classic probing evolution, technological hubris, and class bifurcation over centuries." 
-               data-quote="There is no difference between Time and any of the three dimensions of Space except that our consciousness moves along it." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="The Time Machine by H. G. Wells">
-            <div class="book-spine" style="background-color: #7C2D12; color: #FEF08A;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">The Time Machine</span>
-              <span class="spine-author">Wells</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>The Time Machine</strong>
-              <span>H. G. Wells</span>
-            </div>
-          </div>
-          <div class="shelf-book" 
-               data-id="relativity-einstein" 
-               data-genre="science" 
-               data-title="Relativity" 
-               data-author="Albert Einstein" 
-               data-cover="assets/books/relativity-einstein.jpg" 
-               data-badge="⚛️ Theoretical Physics" 
-               data-takeaway="Special and General Relativity explained by the master: time dilation, gravity as spacetime curvature, and the invariance of c." 
-               data-quote="The most incomprehensible thing about the universe is that it is comprehensible." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="Relativity by Albert Einstein">
-            <div class="book-spine" style="background-color: #1E1B4B; color: #C7D2FE;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Relativity</span>
-              <span class="spine-author">Einstein</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>Relativity</strong>
-              <span>Albert Einstein</span>
-            </div>
-          </div>
-          <div class="shelf-book" 
-               data-id="origin-of-species" 
-               data-genre="science" 
-               data-title="On the Origin of Species" 
-               data-author="Charles Darwin" 
-               data-cover="assets/books/origin-of-species.jpg" 
-               data-badge="🌱 Evolutionary Biology" 
-               data-takeaway="Natural selection and descent with modification—the master algorithm governing biology, culture, and technology." 
-               data-quote="There is grandeur in this view of life, with its several powers, having been originally breathed into a few forms or into one." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="On the Origin of Species by Charles Darwin">
-            <div class="book-spine" style="background-color: #2E1065; color: #E9D5FF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">On the Origin of Species</span>
-              <span class="spine-author">Darwin</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>On the Origin of Species</strong>
-              <span>Charles Darwin</span>
-            </div>
-          </div>
-          <div class="shelf-book" 
-               data-id="my-inventions-tesla" 
-               data-genre="science" 
-               data-title="My Inventions: Nikola Tesla" 
-               data-author="Nikola Tesla" 
-               data-cover="assets/books/my-inventions-tesla.jpg" 
-               data-badge="⚡️ Electrical Genius" 
-               data-takeaway="Tesla&#39;s extraordinary cognitive ability to mentally simulate, build, and debug complex multi-phase AC machines in his mind." 
-               data-quote="The present is theirs; the future, for which I really worked, is mine." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="My Inventions: Nikola Tesla by Nikola Tesla">
-            <div class="book-spine" style="background-color: #0284C7; color: #FFFFFF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">My Inventions: Nikola Tesla</span>
-              <span class="spine-author">Tesla</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>My Inventions: Nikola Tesla</strong>
-              <span>Nikola Tesla</span>
-            </div>
-          </div>
-          <div class="shelf-book" 
-               data-id="mans-search-for-meaning" 
-               data-genre="mindset" 
-               data-title="Man&#39;s Search for Meaning" 
-               data-author="Viktor E. Frankl" 
-               data-cover="assets/books/mans-search-for-meaning.jpg" 
-               data-badge="🕊 Stoic Resilience" 
-               data-takeaway="Human resilience through purpose. When a person discovers their &#39;why&#39;, they can endure almost any &#39;how&#39;." 
-               data-quote="Everything can be taken from a man but one thing: the last of the human freedoms—to choose one&#39;s attitude in any given set of circumstances." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="Man&#39;s Search for Meaning by Viktor E. Frankl">
-            <div class="book-spine" style="background-color: #3F3F46; color: #F4F4F5;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Man's Search for Meaning</span>
-              <span class="spine-author">Frankl</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>Man's Search for Meaning</strong>
-              <span>Viktor E. Frankl</span>
+              <span class="tooltip-badge">💎 Leverage &amp; Wealth</span>
             </div>
           </div>
           <div class="shelf-book" 
@@ -1427,43 +1273,21 @@
                data-author="Morgan Housel" 
                data-cover="assets/books/psychology-of-money.jpg" 
                data-badge="💰 Behavioral Finance" 
-               data-takeaway="Wealth is what you don&#39;t spend. Financial success is a soft skill governed by patience, humility, and staying in the game." 
+               data-takeaway="Wealth is what you don&#x27;t spend. Financial success is a soft skill governed by patience, humility, and staying in the game." 
                data-quote="Spending money to show people how much money you have is the fastest way to have less money." 
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
                aria-label="The Psychology of Money by Morgan Housel">
-            <div class="book-spine" style="background-color: #15803D; color: #FFFFFF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">The Psychology of Money</span>
-              <span class="spine-author">Housel</span>
+            <div class="book-cover-3d">
+              <img src="assets/books/psychology-of-money.jpg" alt="The Psychology of Money Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>The Psychology of Money</strong>
               <span>Morgan Housel</span>
-            </div>
-          </div>
-          <div class="shelf-book" 
-               data-id="power-of-subconscious-mind" 
-               data-genre="mindset" 
-               data-title="The Power of Your Subconscious Mind" 
-               data-author="Joseph Murphy" 
-               data-cover="assets/books/power-of-subconscious-mind.jpg" 
-               data-badge="🧠 Subconscious Focus" 
-               data-takeaway="Reprogramming subconscious belief patterns, overcoming mental friction, and harmonizing inner vision with execution." 
-               data-quote="The subconscious mind is the seat of all emotional patterns and automatic habits. Speak to it with conviction." 
-               onclick="openBookModal(this)" 
-               tabindex="0" 
-               role="button" 
-               aria-label="The Power of Your Subconscious Mind by Joseph Murphy">
-            <div class="book-spine" style="background-color: #4338CA; color: #FFFFFF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">The Power of Your Subconscious Mind</span>
-              <span class="spine-author">Murphy</span>
-            </div>
-            <div class="book-tooltip">
-              <strong>The Power of Your Subconscious Mind</strong>
-              <span>Joseph Murphy</span>
+              <span class="tooltip-badge">💰 Behavioral Finance</span>
             </div>
           </div>
           <div class="shelf-book" 
@@ -1479,14 +1303,143 @@
                tabindex="0" 
                role="button" 
                aria-label="Dopamine Detox by Thibaut Meurisse">
-            <div class="book-spine" style="background-color: #EA580C; color: #FFFFFF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Dopamine Detox</span>
-              <span class="spine-author">Meurisse</span>
+            <div class="book-cover-3d">
+              <img src="assets/books/dopamine-detox.jpg" alt="Dopamine Detox Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>Dopamine Detox</strong>
               <span>Thibaut Meurisse</span>
+              <span class="tooltip-badge">🎯 Deep Focus</span>
+            </div>
+          </div>
+        </div>
+        <div class="shelf-plank"></div>
+      </div>
+
+      <!-- Shelf Tier 2 -->
+      <div class="shelf-tier">
+        <div class="shelf-tier-label">Shelf 2 • Deep Sci-Fi & Speculative Horizons</div>
+        <div class="shelf-row">
+          <div class="shelf-book" 
+               data-id="project-hail-mary" 
+               data-genre="scifi" 
+               data-title="Project Hail Mary" 
+               data-author="Andy Weir" 
+               data-cover="assets/books/project-hail-mary.jpg" 
+               data-badge="🚀 Hard Sci-Fi" 
+               data-takeaway="First-principles physics problem solving, relentless resilience, and extraordinary cross-species scientific cooperation." 
+               data-quote="Human beings have a remarkable ability to accept the abnormal and make it normal through scientific deduction." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="Project Hail Mary by Andy Weir">
+            <div class="book-cover-3d">
+              <img src="assets/books/project-hail-mary.jpg" alt="Project Hail Mary Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>Project Hail Mary</strong>
+              <span>Andy Weir</span>
+              <span class="tooltip-badge">🚀 Hard Sci-Fi</span>
+            </div>
+          </div>
+          <div class="shelf-book" 
+               data-id="three-body-problem" 
+               data-genre="scifi" 
+               data-title="The Three-Body Problem" 
+               data-author="Cixin Liu" 
+               data-cover="assets/books/three-body-problem.jpg" 
+               data-badge="🌌 Cosmic Sci-Fi" 
+               data-takeaway="First contact with an alien civilization enduring chaotic orbital mechanics, sparking unprecedented interstellar geopolitics." 
+               data-quote="The universe is a grand mystery, and humanity&#x27;s insignificance within it is both terrifying and humbling." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="The Three-Body Problem by Cixin Liu">
+            <div class="book-cover-3d">
+              <img src="assets/books/three-body-problem.jpg" alt="The Three-Body Problem Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>The Three-Body Problem</strong>
+              <span>Cixin Liu</span>
+              <span class="tooltip-badge">🌌 Cosmic Sci-Fi</span>
+            </div>
+          </div>
+          <div class="shelf-book" 
+               data-id="dark-forest" 
+               data-genre="scifi" 
+               data-title="The Dark Forest" 
+               data-author="Cixin Liu" 
+               data-cover="assets/books/dark-forest.jpg" 
+               data-badge="🌲 Cosmic Sociology" 
+               data-takeaway="The Dark Forest theory of the cosmos: civilizations hide because survival demands preemptive strikes in silence." 
+               data-quote="The universe is a dark forest. Every civilization is an armed hunter stalking through the trees like a ghost." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="The Dark Forest by Cixin Liu">
+            <div class="book-cover-3d">
+              <img src="assets/books/dark-forest.jpg" alt="The Dark Forest Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>The Dark Forest</strong>
+              <span>Cixin Liu</span>
+              <span class="tooltip-badge">🌲 Cosmic Sociology</span>
+            </div>
+          </div>
+          <div class="shelf-book" 
+               data-id="deaths-end" 
+               data-genre="scifi" 
+               data-title="Death&#x27;s End" 
+               data-author="Cixin Liu" 
+               data-cover="assets/books/deaths-end.jpg" 
+               data-badge="⏳ Deep Time Epic" 
+               data-takeaway="Dimensional strikes, curvature propulsion, and the ultimate evolutionary fate of conscious civilizations across eons." 
+               data-quote="Weakness and ignorance are not barriers to survival, but arrogance is." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="Death&#x27;s End by Cixin Liu">
+            <div class="book-cover-3d">
+              <img src="assets/books/deaths-end.jpg" alt="Death&#x27;s End Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>Death&#x27;s End</strong>
+              <span>Cixin Liu</span>
+              <span class="tooltip-badge">⏳ Deep Time Epic</span>
+            </div>
+          </div>
+          <div class="shelf-book" 
+               data-id="the-time-machine" 
+               data-genre="scifi" 
+               data-title="The Time Machine" 
+               data-author="H. G. Wells" 
+               data-cover="assets/books/the-time-machine.jpg" 
+               data-badge="🕰 Classic Sci-Fi" 
+               data-takeaway="The foundational temporal classic probing evolution, technological hubris, and class bifurcation over centuries." 
+               data-quote="There is no difference between Time and any of the three dimensions of Space except that our consciousness moves along it." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="The Time Machine by H. G. Wells">
+            <div class="book-cover-3d">
+              <img src="assets/books/the-time-machine.jpg" alt="The Time Machine Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>The Time Machine</strong>
+              <span>H. G. Wells</span>
+              <span class="tooltip-badge">🕰 Classic Sci-Fi</span>
             </div>
           </div>
         </div>
@@ -1495,30 +1448,160 @@
 
       <!-- Shelf Tier 3 -->
       <div class="shelf-tier">
+        <div class="shelf-tier-label">Shelf 3 • Physics, Natural Science & Biographies</div>
         <div class="shelf-row">
+          <div class="shelf-book" 
+               data-id="relativity-einstein" 
+               data-genre="science" 
+               data-title="Relativity" 
+               data-author="Albert Einstein" 
+               data-cover="assets/books/relativity-einstein.jpg" 
+               data-badge="⚛️ Theoretical Physics" 
+               data-takeaway="Special and General Relativity explained by the master: time dilation, gravity as spacetime curvature, and the invariance of c." 
+               data-quote="The most incomprehensible thing about the universe is that it is comprehensible." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="Relativity by Albert Einstein">
+            <div class="book-cover-3d">
+              <img src="assets/books/relativity-einstein.jpg" alt="Relativity Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>Relativity</strong>
+              <span>Albert Einstein</span>
+              <span class="tooltip-badge">⚛️ Theoretical Physics</span>
+            </div>
+          </div>
+          <div class="shelf-book" 
+               data-id="origin-of-species" 
+               data-genre="science" 
+               data-title="On the Origin of Species" 
+               data-author="Charles Darwin" 
+               data-cover="assets/books/origin-of-species.jpg" 
+               data-badge="🌱 Evolutionary Biology" 
+               data-takeaway="Natural selection and descent with modification—the master algorithm governing biology, culture, and technology." 
+               data-quote="There is grandeur in this view of life, with its several powers, having been originally breathed into a few forms or into one." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="On the Origin of Species by Charles Darwin">
+            <div class="book-cover-3d">
+              <img src="assets/books/origin-of-species.jpg" alt="On the Origin of Species Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>On the Origin of Species</strong>
+              <span>Charles Darwin</span>
+              <span class="tooltip-badge">🌱 Evolutionary Biology</span>
+            </div>
+          </div>
+          <div class="shelf-book" 
+               data-id="my-inventions-tesla" 
+               data-genre="science" 
+               data-title="My Inventions: Nikola Tesla" 
+               data-author="Nikola Tesla" 
+               data-cover="assets/books/my-inventions-tesla.jpg" 
+               data-badge="⚡️ Electrical Genius" 
+               data-takeaway="Tesla&#x27;s extraordinary cognitive ability to mentally simulate, build, and debug complex multi-phase AC machines in his mind." 
+               data-quote="The present is theirs; the future, for which I really worked, is mine." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="My Inventions: Nikola Tesla by Nikola Tesla">
+            <div class="book-cover-3d">
+              <img src="assets/books/my-inventions-tesla.jpg" alt="My Inventions: Nikola Tesla Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>My Inventions: Nikola Tesla</strong>
+              <span>Nikola Tesla</span>
+              <span class="tooltip-badge">⚡️ Electrical Genius</span>
+            </div>
+          </div>
+          <div class="shelf-book" 
+               data-id="mans-search-for-meaning" 
+               data-genre="mindset" 
+               data-title="Man&#x27;s Search for Meaning" 
+               data-author="Viktor E. Frankl" 
+               data-cover="assets/books/mans-search-for-meaning.jpg" 
+               data-badge="🕊 Stoic Resilience" 
+               data-takeaway="Human resilience through purpose. When a person discovers their &#x27;why&#x27;, they can endure almost any &#x27;how&#x27;." 
+               data-quote="Everything can be taken from a man but one thing: the last of the human freedoms—to choose one&#x27;s attitude in any given set of circumstances." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="Man&#x27;s Search for Meaning by Viktor E. Frankl">
+            <div class="book-cover-3d">
+              <img src="assets/books/mans-search-for-meaning.jpg" alt="Man&#x27;s Search for Meaning Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>Man&#x27;s Search for Meaning</strong>
+              <span>Viktor E. Frankl</span>
+              <span class="tooltip-badge">🕊 Stoic Resilience</span>
+            </div>
+          </div>
+          <div class="shelf-book" 
+               data-id="power-of-subconscious-mind" 
+               data-genre="mindset" 
+               data-title="The Power of Your Subconscious Mind" 
+               data-author="Joseph Murphy" 
+               data-cover="assets/books/power-of-subconscious-mind.jpg" 
+               data-badge="🧠 Subconscious Focus" 
+               data-takeaway="Reprogramming subconscious belief patterns, overcoming mental friction, and harmonizing inner vision with execution." 
+               data-quote="The subconscious mind is the seat of all emotional patterns and automatic habits. Speak to it with conviction." 
+               onclick="openBookModal(this)" 
+               tabindex="0" 
+               role="button" 
+               aria-label="The Power of Your Subconscious Mind by Joseph Murphy">
+            <div class="book-cover-3d">
+              <img src="assets/books/power-of-subconscious-mind.jpg" alt="The Power of Your Subconscious Mind Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
+            </div>
+            <div class="book-tooltip">
+              <strong>The Power of Your Subconscious Mind</strong>
+              <span>Joseph Murphy</span>
+              <span class="tooltip-badge">🧠 Subconscious Focus</span>
+            </div>
+          </div>
           <div class="shelf-book" 
                data-id="do-epic-shit" 
                data-genre="mindset" 
                data-title="Do Epic Shit" 
                data-author="Ankur Warikoo" 
                data-cover="assets/books/do-epic-shit.jpg" 
-               data-badge="💡 Habit & Growth" 
+               data-badge="💡 Habit &amp; Growth" 
                data-takeaway="Candid self-reflections on compounding habits, career risk-taking, personal failures, and intentional life design." 
                data-quote="Success is a byproduct of consistency. Do what is hard today so your future self can thrive." 
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
                aria-label="Do Epic Shit by Ankur Warikoo">
-            <div class="book-spine" style="background-color: #F59E0B; color: #0F172A;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Do Epic Shit</span>
-              <span class="spine-author">Warikoo</span>
+            <div class="book-cover-3d">
+              <img src="assets/books/do-epic-shit.jpg" alt="Do Epic Shit Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>Do Epic Shit</strong>
               <span>Ankur Warikoo</span>
+              <span class="tooltip-badge">💡 Habit &amp; Growth</span>
             </div>
           </div>
+        </div>
+        <div class="shelf-plank"></div>
+      </div>
+
+      <!-- Shelf Tier 4 -->
+      <div class="shelf-tier">
+        <div class="shelf-tier-label">Shelf 4 • Indic Epics, Consciousness & Satvic Living</div>
+        <div class="shelf-row">
           <div class="shelf-book" 
                data-id="autobiography-of-a-yogi" 
                data-genre="spirituality" 
@@ -1532,14 +1615,15 @@
                tabindex="0" 
                role="button" 
                aria-label="Autobiography of a Yogi by Paramahansa Yogananda">
-            <div class="book-spine" style="background-color: #EA580C; color: #FFFFFF;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Autobiography of a Yogi</span>
-              <span class="spine-author">Yogananda</span>
+            <div class="book-cover-3d">
+              <img src="assets/books/autobiography-of-a-yogi.jpg" alt="Autobiography of a Yogi Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>Autobiography of a Yogi</strong>
               <span>Paramahansa Yogananda</span>
+              <span class="tooltip-badge">🕉 Spiritual Masterpiece</span>
             </div>
           </div>
           <div class="shelf-book" 
@@ -1549,20 +1633,21 @@
                data-author="Munshi Premchand" 
                data-cover="assets/books/godaan.jpg" 
                data-badge="📖 Classic Literature" 
-               data-takeaway="The monumental epic of Indian rural realism, moral integrity, socio-economic empathy, and the tragedy of Hori&#39;s sacrifice." 
+               data-takeaway="The monumental epic of Indian rural realism, moral integrity, socio-economic empathy, and the tragedy of Hori&#x27;s sacrifice." 
                data-quote="धर्म और मर्यादा का पालन वही कर सकता है जिसके पास त्याग करने की अपार क्षमता हो।" 
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
                aria-label="Godaan (गोदान) by Munshi Premchand">
-            <div class="book-spine" style="background-color: #854D0E; color: #FEF08A;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Godaan (गोदान)</span>
-              <span class="spine-author">Premchand</span>
+            <div class="book-cover-3d">
+              <img src="assets/books/godaan.jpg" alt="Godaan (गोदान) Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>Godaan (गोदान)</strong>
               <span>Munshi Premchand</span>
+              <span class="tooltip-badge">📖 Classic Literature</span>
             </div>
           </div>
           <div class="shelf-book" 
@@ -1578,37 +1663,39 @@
                tabindex="0" 
                role="button" 
                aria-label="Cosmology of the Bhāgavata Purāṇa by Richard L. Thompson (Sadaputa Dasa)">
-            <div class="book-spine" style="background-color: #1E3A8A; color: #FDE047;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Cosmology of the Bhāgavata Purāṇa</span>
-              <span class="spine-author">Dasa)</span>
+            <div class="book-cover-3d">
+              <img src="assets/books/cosmology-bhagavata-purana.jpg" alt="Cosmology of the Bhāgavata Purāṇa Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>Cosmology of the Bhāgavata Purāṇa</strong>
               <span>Richard L. Thompson (Sadaputa Dasa)</span>
+              <span class="tooltip-badge">🪐 Puranic Cosmology</span>
             </div>
           </div>
           <div class="shelf-book" 
                data-id="sugrivas-atlas" 
                data-genre="spirituality" 
-               data-title="Sugriva&#39;s Atlas" 
-               data-author="Nilesh Nilkanth Oak & Deepali Patwadkar" 
+               data-title="Sugriva&#x27;s Atlas" 
+               data-author="Nilesh Nilkanth Oak &amp; Deepali Patwadkar" 
                data-cover="assets/books/sugrivas-atlas.jpg" 
                data-badge="🗺 Ancient Geography" 
                data-takeaway="Rigorous geographical mapping of the search directions in the Ramayana across four continents and global geography." 
-               data-quote="Sugriva&#39;s directions to his vanara search teams detail precise, empirical geographic milestones across the globe." 
+               data-quote="Sugriva&#x27;s directions to his vanara search teams detail precise, empirical geographic milestones across the globe." 
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
-               aria-label="Sugriva&#39;s Atlas by Nilesh Nilkanth Oak & Deepali Patwadkar">
-            <div class="book-spine" style="background-color: #0A192F; color: #D4AF37;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Sugriva's Atlas</span>
-              <span class="spine-author">Oak</span>
+               aria-label="Sugriva&#x27;s Atlas by Nilesh Nilkanth Oak &amp; Deepali Patwadkar">
+            <div class="book-cover-3d">
+              <img src="assets/books/sugrivas-atlas.jpg" alt="Sugriva&#x27;s Atlas Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
-              <strong>Sugriva's Atlas</strong>
-              <span>Nilesh Nilkanth Oak & Deepali Patwadkar</span>
+              <strong>Sugriva&#x27;s Atlas</strong>
+              <span>Nilesh Nilkanth Oak &amp; Deepali Patwadkar</span>
+              <span class="tooltip-badge">🗺 Ancient Geography</span>
             </div>
           </div>
           <div class="shelf-book" 
@@ -1617,28 +1704,29 @@
                data-title="Mothers and Masters" 
                data-author="Bharat Vidya Swami" 
                data-cover="assets/books/mothers-and-masters.jpg" 
-               data-badge="🧘‍♂️ Devotion & Lineage" 
+               data-badge="🧘‍♂️ Devotion &amp; Lineage" 
                data-takeaway="Heart-centered discourses on timeless guru-shishya lineages, surrender, and spiritual motherly shelter." 
-               data-quote="A master does not simply teach knowledge; they awaken the dormant love already residing in the disciple&#39;s heart." 
+               data-quote="A master does not simply teach knowledge; they awaken the dormant love already residing in the disciple&#x27;s heart." 
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
                aria-label="Mothers and Masters by Bharat Vidya Swami">
-            <div class="book-spine" style="background-color: #7C2D12; color: #FDE047;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">Mothers and Masters</span>
-              <span class="spine-author">Swami</span>
+            <div class="book-cover-3d">
+              <img src="assets/books/mothers-and-masters.jpg" alt="Mothers and Masters Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>Mothers and Masters</strong>
               <span>Bharat Vidya Swami</span>
+              <span class="tooltip-badge">🧘‍♂️ Devotion &amp; Lineage</span>
             </div>
           </div>
           <div class="shelf-book" 
                data-id="the-satvic-revolution" 
                data-genre="spirituality" 
                data-title="The Satvic Revolution" 
-               data-author="Subah Saraf & Harshvardhan Saraf" 
+               data-author="Subah Saraf &amp; Harshvardhan Saraf" 
                data-cover="assets/books/the-satvic-revolution.jpg" 
                data-badge="🌿 Holistic Wellness" 
                data-takeaway="Living in circadian harmony, eating living water-rich foods, and activating natural self-healing biological mechanisms." 
@@ -1646,20 +1734,22 @@
                onclick="openBookModal(this)" 
                tabindex="0" 
                role="button" 
-               aria-label="The Satvic Revolution by Subah Saraf & Harshvardhan Saraf">
-            <div class="book-spine" style="background-color: #14342B; color: #86EFAC;">
-              <div class="spine-ribbon"></div>
-              <span class="spine-title">The Satvic Revolution</span>
-              <span class="spine-author">Saraf</span>
+               aria-label="The Satvic Revolution by Subah Saraf &amp; Harshvardhan Saraf">
+            <div class="book-cover-3d">
+              <img src="assets/books/the-satvic-revolution.jpg" alt="The Satvic Revolution Cover" class="book-cover-front-img" loading="lazy">
+              <div class="book-spine-crease"></div>
+              <div class="book-page-edges"></div>
             </div>
             <div class="book-tooltip">
               <strong>The Satvic Revolution</strong>
-              <span>Subah Saraf & Harshvardhan Saraf</span>
+              <span>Subah Saraf &amp; Harshvardhan Saraf</span>
+              <span class="tooltip-badge">🌿 Holistic Wellness</span>
             </div>
           </div>
         </div>
         <div class="shelf-plank"></div>
       </div>
+
     </section>
 
     <!-- ─── Visual Card Grid View ─── -->
@@ -2463,6 +2553,16 @@
           b.style.display = 'flex';
         } else {
           b.style.display = 'none';
+        }
+      });
+
+      // Show/hide empty shelf tiers
+      document.querySelectorAll('.shelf-tier').forEach(tier => {
+        const visibleInTier = Array.from(tier.querySelectorAll('.shelf-book')).filter(b => b.style.display !== 'none');
+        if (visibleInTier.length === 0) {
+          tier.style.display = 'none';
+        } else {
+          tier.style.display = 'block';
         }
       });
 
