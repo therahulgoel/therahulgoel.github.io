@@ -554,25 +554,32 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 48px;
-      padding: 6px 16px;
-      background: var(--bg-subtle);
+      height: 52px;
+      padding: 6px 18px;
+      background: #FFFFFF;
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
       transition: all 0.2s ease;
+    }
+
+    [data-theme="dark"] .company-logo-item {
+      background: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.15);
     }
 
     .company-logo-item:hover {
       border-color: var(--border-accent);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-md);
     }
 
     .company-logo-item img {
-      height: 32px;
+      height: 34px;
       width: auto;
       max-width: 130px;
       object-fit: contain;
+      border-radius: 4px;
     }
 
     /* ─── Metric Counter Bento ─── */
@@ -686,7 +693,19 @@
       color: var(--text);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+    }
+
+    .exp-company img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #FFFFFF;
+      padding: 3px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      flex-shrink: 0;
     }
 
     .exp-role {
@@ -1134,23 +1153,23 @@
       <div class="companies-logos">
         <!-- Sony LIV -->
         <div class="company-logo-item" title="SonyLiv">
-          <img src="assets/logos/sonyliv.svg" alt="SonyLiv">
+          <img src="assets/companies/sonyliv.png" alt="SonyLiv" loading="lazy">
         </div>
         <!-- ShareChat / Moj -->
         <div class="company-logo-item" title="ShareChat / Moj">
-          <img src="assets/logos/sharechat.svg" alt="ShareChat">
+          <img src="assets/companies/sharechat.png" alt="ShareChat" loading="lazy">
         </div>
         <!-- Paytm -->
         <div class="company-logo-item" title="Paytm">
-          <img src="assets/logos/paytm.svg" alt="Paytm">
+          <img src="assets/companies/paytm.png" alt="Paytm" loading="lazy">
         </div>
         <!-- Myntra -->
         <div class="company-logo-item" title="Myntra">
-          <img src="assets/logos/myntra.svg" alt="Myntra">
+          <img src="assets/companies/myntra.png" alt="Myntra" loading="lazy">
         </div>
         <!-- Groupon -->
         <div class="company-logo-item" title="Groupon">
-          <img src="assets/logos/groupon.svg" alt="Groupon">
+          <img src="assets/companies/groupon.png" alt="Groupon" loading="lazy">
         </div>
       </div>
     </section>
@@ -1193,7 +1212,7 @@
           <div class="exp-header">
             <div class="exp-title-group">
               <div class="exp-company">
-                <img src="assets/logos/sonyliv.svg" alt="SonyLiv logo" style="height: 24px; vertical-align: middle;">
+                <img src="assets/companies/sonyliv.png" alt="SonyLiv logo">
                 <span>SonyLiv (Sony Pictures Networks India)</span>
               </div>
               <div class="exp-role">Senior Engineering Manager, Apps Platform</div>
@@ -1213,7 +1232,7 @@
           <div class="exp-header">
             <div class="exp-title-group">
               <div class="exp-company">
-                <img src="assets/logos/sharechat.svg" alt="ShareChat logo" style="height: 24px; vertical-align: middle;">
+                <img src="assets/companies/sharechat.png" alt="ShareChat logo">
                 <span>ShareChat / Moj</span>
               </div>
               <div class="exp-role">Technical Lead, Apps Performance & Streaming</div>
@@ -1233,7 +1252,7 @@
           <div class="exp-header">
             <div class="exp-title-group">
               <div class="exp-company">
-                <img src="assets/logos/groupon.svg" alt="Groupon logo" style="height: 24px; vertical-align: middle;">
+                <img src="assets/companies/groupon.png" alt="Groupon logo">
                 <span>Groupon</span>
               </div>
               <div class="exp-role">Senior Software Engineer, Merchant Platform</div>
@@ -1252,7 +1271,7 @@
           <div class="exp-header">
             <div class="exp-title-group">
               <div class="exp-company">
-                <img src="assets/logos/paytm.svg" alt="Paytm logo" style="height: 24px; vertical-align: middle;">
+                <img src="assets/companies/paytm.png" alt="Paytm logo">
                 <span>Paytm</span>
               </div>
               <div class="exp-role">Senior Software Engineer, Payments & Platform</div>
@@ -1270,7 +1289,7 @@
           <div class="exp-header">
             <div class="exp-title-group">
               <div class="exp-company">
-                <img src="assets/logos/myntra.svg" alt="Myntra logo" style="height: 24px; vertical-align: middle;">
+                <img src="assets/companies/myntra.png" alt="Myntra logo">
                 <span>Myntra / Jabong</span>
               </div>
               <div class="exp-role">Senior Software Engineer, E-Commerce Platform</div>
