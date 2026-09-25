@@ -544,42 +544,70 @@
 
     .companies-logos {
       display: flex;
-      align-items: center;
-      justify-content: space-around;
+      align-items: stretch;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 24px;
+      gap: 16px;
     }
 
-    .company-logo-item {
+    .company-logo-card {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 52px;
-      padding: 6px 18px;
-      background: #FFFFFF;
-      border-radius: var(--radius-md);
+      text-align: center;
+      padding: 18px 16px;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      min-width: 145px;
+      flex: 1;
+      max-width: 195px;
     }
 
-    [data-theme="dark"] .company-logo-item {
-      background: #FFFFFF;
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-
-    .company-logo-item:hover {
+    .company-logo-card:hover {
       border-color: var(--border-accent);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       box-shadow: var(--shadow-md);
     }
 
-    .company-logo-item img {
-      height: 34px;
-      width: auto;
-      max-width: 130px;
-      object-fit: contain;
-      border-radius: 4px;
+    .company-icon-wrap {
+      width: 68px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .company-app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease;
+    }
+
+    .company-logo-card:hover .company-app-icon {
+      transform: scale(1.06);
+    }
+
+    .company-name {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .company-desc {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--text-subtle);
+      line-height: 1.3;
     }
 
     /* ─── Metric Counter Bento ─── */
@@ -697,14 +725,12 @@
     }
 
     .exp-company img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      border-radius: 6px;
-      background: #FFFFFF;
-      padding: 3px;
+      width: 44px;
+      height: 44px;
+      object-fit: cover;
+      border-radius: 11px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       border: 1px solid var(--border);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
       flex-shrink: 0;
     }
 
@@ -1449,24 +1475,48 @@
       <div class="companies-label">Scaled Platforms, Architecture & Engineering Across Industry Leaders</div>
       <div class="companies-logos">
         <!-- Sony LIV -->
-        <div class="company-logo-item" title="SonyLiv">
-          <img src="assets/companies/sonyliv.png" alt="SonyLiv" loading="lazy">
+        <div class="company-logo-card">
+          <div class="company-icon-wrap">
+            <img src="assets/companies/sonyliv.png" alt="Sony LIV app icon" class="company-app-icon" loading="lazy">
+          </div>
+          <div class="company-name">Sony LIV</div>
+          <div class="company-desc">OTT & Asia Cup Streaming</div>
         </div>
+
         <!-- ShareChat / Moj -->
-        <div class="company-logo-item" title="ShareChat / Moj">
-          <img src="assets/companies/sharechat.png" alt="ShareChat" loading="lazy">
+        <div class="company-logo-card">
+          <div class="company-icon-wrap">
+            <img src="assets/companies/sharechat.png" alt="ShareChat app icon" class="company-app-icon" loading="lazy">
+          </div>
+          <div class="company-name">ShareChat / Moj</div>
+          <div class="company-desc">Short Video • 300M MAU</div>
         </div>
+
         <!-- Paytm -->
-        <div class="company-logo-item" title="Paytm">
-          <img src="assets/companies/paytm.png" alt="Paytm" loading="lazy">
+        <div class="company-logo-card">
+          <div class="company-icon-wrap">
+            <img src="assets/companies/paytm.png" alt="Paytm app icon" class="company-app-icon" loading="lazy">
+          </div>
+          <div class="company-name">Paytm</div>
+          <div class="company-desc">Fintech & Payments SDK</div>
         </div>
+
         <!-- Myntra -->
-        <div class="company-logo-item" title="Myntra">
-          <img src="assets/companies/myntra.png" alt="Myntra" loading="lazy">
+        <div class="company-logo-card">
+          <div class="company-icon-wrap">
+            <img src="assets/companies/myntra.png" alt="Myntra app icon" class="company-app-icon" loading="lazy">
+          </div>
+          <div class="company-name">Myntra</div>
+          <div class="company-desc">E-Commerce • EORS Scale</div>
         </div>
+
         <!-- Groupon -->
-        <div class="company-logo-item" title="Groupon">
-          <img src="assets/companies/groupon.png" alt="Groupon" loading="lazy">
+        <div class="company-logo-card">
+          <div class="company-icon-wrap">
+            <img src="assets/companies/groupon.png" alt="Groupon app icon" class="company-app-icon" loading="lazy">
+          </div>
+          <div class="company-name">Groupon</div>
+          <div class="company-desc">Global Merchant Platform</div>
         </div>
       </div>
     </section>
