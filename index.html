@@ -862,208 +862,71 @@
 
     /* ─── Open Source Section ─── */
     .opensource-section {
-      margin-bottom: 96px;
+      margin-bottom: 72px;
     }
 
-    .opensource-feature-card {
+    .opensource-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
       box-shadow: var(--shadow-card);
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      transition: all 0.2s ease;
     }
 
-    .opensource-feature-card:hover {
+    .opensource-card:hover {
       border-color: var(--border-accent);
       box-shadow: var(--shadow-hover);
     }
 
-    .opensource-banner-wrap {
-      position: relative;
-      width: 100%;
-      height: 340px;
-      overflow: hidden;
-      background: #0F172A;
+    .opensource-card-left {
+      flex: 1;
     }
 
-    .opensource-banner-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.4s ease;
-      display: block;
-    }
-
-    .opensource-feature-card:hover .opensource-banner-img {
-      transform: scale(1.02);
-    }
-
-    .opensource-banner-overlay {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      right: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      z-index: 2;
-    }
-
-    .opensource-repo-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: #FFFFFF;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .opensource-mit-badge {
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: #38BDF8;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      padding: 6px 12px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .opensource-content {
-      padding: 32px;
-    }
-
-    .opensource-header-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .opensource-prehead {
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent-blue);
-      margin-bottom: 6px;
-    }
-
-    .opensource-title {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-    }
-
-    .opensource-actions {
+    .opensource-title-row {
       display: flex;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .opensource-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 24px;
-      max-width: 950px;
-    }
-
-    .opensource-desc strong {
-      color: var(--text);
-    }
-
-    .opensource-stats-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-
-    .os-stat {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .os-stat-val {
-      font-size: 1.35rem;
-      font-weight: 900;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    .os-stat-lbl {
-      font-size: 0.75rem;
-      color: var(--text-subtle);
-      font-weight: 600;
-      margin-top: 4px;
-    }
-
-    .opensource-pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .os-pillar-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 18px;
-      transition: all 0.2s ease;
-    }
-
-    .os-pillar-card:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .os-pillar-icon {
-      font-size: 1.4rem;
       margin-bottom: 8px;
     }
 
-    .os-pillar-title {
-      font-size: 0.95rem;
+    .opensource-github-icon {
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .opensource-card-title {
+      font-size: 1.25rem;
       font-weight: 800;
       color: var(--text);
-      margin-bottom: 6px;
+      line-height: 1.3;
+      margin: 0;
     }
 
-    .os-pillar-desc {
-      font-size: 0.8rem;
-      color: var(--text-subtle);
-      line-height: 1.5;
+    .opensource-card-title a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
 
-    .opensource-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .opensource-card-title a:hover {
+      color: var(--accent-blue);
+    }
+
+    .opensource-card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0;
+      max-width: 800px;
+    }
+
+    .opensource-card-right {
+      flex-shrink: 0;
     }
 
         /* ─── Technical Expertise Grid (Concise + Interactive Tap) ─── */
@@ -1809,14 +1672,9 @@
       .events-attended-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .opensource-stats-strip {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .opensource-pillars-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .opensource-banner-wrap {
-        height: 240px;
+      .opensource-card {
+        flex-direction: column;
+        align-items: flex-start;
       }
       .timeline-photo,
       .attended-media {
@@ -2253,121 +2111,31 @@
     </section>
 
     <!-- ─── Technical Expertise Grid ─── -->
-    <!-- ─── Open Source Work ─── -->
+    <!-- ─── Open Source Architecture ─── -->
     <section class="opensource-section" id="opensource">
       <div class="section-head">
-        <div class="section-eyebrow">Community & Engineering Leadership</div>
+        <div class="section-eyebrow">Community & Code</div>
         <h2 class="section-title">Open Source Architecture</h2>
-        <p class="section-desc">Production-grade mobile systems design specifications, architectural blueprints, and open-source frameworks for the global iOS engineering community.</p>
       </div>
 
-      <div class="opensource-feature-card">
-        <div class="opensource-banner-wrap">
-          <a href="https://github.com/therahulgoel/ios-system-design" target="_blank" rel="noopener">
-            <img src="assets/opensource/ios-system-design-banner.jpg" alt="iOS Mobile System Design by Rahul Goel" class="opensource-banner-img" loading="lazy">
-          </a>
-          <div class="opensource-banner-overlay">
-            <div class="opensource-repo-badge">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              <span>therahulgoel / ios-system-design</span>
-            </div>
-            <span class="opensource-mit-badge">MIT License</span>
+      <div class="opensource-card">
+        <div class="opensource-card-left">
+          <div class="opensource-title-row">
+            <svg class="opensource-github-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <h3 class="opensource-card-title">
+              <a href="https://github.com/therahulgoel/ios-system-design" target="_blank" rel="noopener">iOS Mobile System Design</a>
+            </h3>
           </div>
-        </div>
-
-        <div class="opensource-content">
-          <div class="opensource-header-row">
-            <div>
-              <div class="opensource-prehead">Flagship Open-Source Architecture Curriculum</div>
-              <h3 class="opensource-title">iOS Mobile System Design</h3>
-            </div>
-            <div class="opensource-actions">
-              <a href="https://github.com/therahulgoel/ios-system-design" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                <span>View on GitHub ↗</span>
-              </a>
-              <a href="https://github.com/therahulgoel/ios-system-design/stargazers" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
-                <span>⭐ Star Repository</span>
-              </a>
-            </div>
-          </div>
-
-          <p class="opensource-desc">
-            The most comprehensive mobile system design repository for Senior, Staff, Principal Engineers, and Engineering Managers (EM). Contains <strong>30 production-grade architecture specifications</strong> with real-world scale numbers, Swift 5.9+ code (async/await, Actors, SwiftUI), SQLite schemas, Mermaid sequence diagrams, trade-off matrices, and FAANG-level mock interview Q&A.
+          <p class="opensource-card-desc">
+            Production-grade mobile system design specifications and architecture blueprints for iOS engineers and engineering managers — covering on-device AI, video streaming, CRDT sync, and security at scale.
           </p>
-
-          <!-- Core Metrics Strip -->
-          <div class="opensource-stats-strip">
-            <div class="os-stat">
-              <span class="os-stat-val">30</span>
-              <span class="os-stat-lbl">Production Specs</span>
-            </div>
-            <div class="os-stat">
-              <span class="os-stat-val">100M+</span>
-              <span class="os-stat-lbl">Target Scale Architecture</span>
-            </div>
-            <div class="os-stat">
-              <span class="os-stat-val">Swift 5.9+</span>
-              <span class="os-stat-lbl">Modern Concurrency & Actors</span>
-            </div>
-            <div class="os-stat">
-              <span class="os-stat-val">100% Free</span>
-              <span class="os-stat-lbl">Open Source (MIT)</span>
-            </div>
-          </div>
-
-          <!-- 6 Pillars / Highlights Grid -->
-          <div class="opensource-pillars-grid">
-            <div class="os-pillar-card">
-              <div class="os-pillar-icon">🤖</div>
-              <div class="os-pillar-title">On-Device AI & LLM Engine</div>
-              <p class="os-pillar-desc">INT4 quantization, CoreML / ExecuTorch runtime, local vector embeddings (USearch / SQLite VSS), token streaming & thermal throttling.</p>
-            </div>
-
-            <div class="os-pillar-card">
-              <div class="os-pillar-icon">🎬</div>
-              <div class="os-pillar-title">Video Streaming & Prefetch</div>
-              <p class="os-pillar-desc">AVPlayer 3-item pooling, adaptive bitrate (ABR) switching, FairPlay DRM offline download pipelines, and low-latency chunk prefetching.</p>
-            </div>
-
-            <div class="os-pillar-card">
-              <div class="os-pillar-icon">💬</div>
-              <div class="os-pillar-title">Real-Time Sync & CRDTs</div>
-              <p class="os-pillar-desc">Operational Transformation (OT) vs CRDTs, SQLite WAL concurrency, WebSocket connection lifecycle, and Signal protocol E2EE.</p>
-            </div>
-
-            <div class="os-pillar-card">
-              <div class="os-pillar-icon">🖥</div>
-              <div class="os-pillar-title">Server-Driven UI (SDUI)</div>
-              <p class="os-pillar-desc">Decoupled component registry, semantic schema versioning, backward-compatible fallback engine, and automated analytics injection.</p>
-            </div>
-
-            <div class="os-pillar-card">
-              <div class="os-pillar-icon">🛡</div>
-              <div class="os-pillar-title">Zero-Trust Mobile Security</div>
-              <p class="os-pillar-desc">Apple App Attest, Secure Enclave key derivation, SPKI TLS 1.3 pinning, SQLCipher database encryption, and atomic token refresh actors.</p>
-            </div>
-
-            <div class="os-pillar-card">
-              <div class="os-pillar-icon">🏛</div>
-              <div class="os-pillar-title">Platform Release & Governance</div>
-              <p class="os-pillar-desc">Engineering Manager framework: 7-day canary release trains, modular interface graph governance, Sev-1 triage & remote kill-switches.</p>
-            </div>
-          </div>
-
-          <!-- Topics / Tags -->
-          <div class="opensource-tags">
-            <span class="tag">#iOSSystemDesign</span>
-            <span class="tag">#StaffEngineer</span>
-            <span class="tag">#EngineeringManager</span>
-            <span class="tag">#SwiftConcurrency</span>
-            <span class="tag">#AVFoundation</span>
-            <span class="tag">#SDUI</span>
-            <span class="tag">#CoreML</span>
-            <span class="tag">#OfflineFirst</span>
-            <span class="tag">#WebRTC</span>
-            <span class="tag">#AppAttest</span>
-          </div>
+        </div>
+        <div class="opensource-card-right">
+          <a href="https://github.com/therahulgoel/ios-system-design" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+            <span>View on GitHub ↗</span>
+          </a>
         </div>
       </div>
     </section>
