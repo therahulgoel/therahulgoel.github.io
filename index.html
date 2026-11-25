@@ -2961,6 +2961,37 @@
 
       <!-- Speaking Timeline -->
       <div class="community-timeline">
+        <!-- Swift Bengaluru panel hosted at Okta -->
+        <article class="timeline-event-card">
+          <div class="timeline-event-grid">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7516362397062787072/" target="_blank" rel="noopener" class="timeline-photo-wrap" title="View Beyond Login event on LinkedIn">
+              <img src="assets/community/okta-beyond-login.jpg" alt="Swift Bengaluru Beyond Login panel at Okta featuring Rahul Goel, Ajey Charantimath, Viswanathan Parthasarathy and moderator Swapna Narayanswamy" class="timeline-photo" width="1080" height="1080" style="height: auto; object-fit: contain;" loading="lazy">
+            </a>
+            <div class="timeline-event-body">
+              <div class="event-header">
+                <div class="event-badges">
+                  <span class="event-badge speaker">🎙️ Speaker &amp; Panelist</span>
+                  <span class="event-date">October 16, 2026</span>
+                </div>
+              </div>
+              <h3 class="event-title">Beyond Login: Identity, Security, and the Future of iOS Apps</h3>
+              <div class="event-meta">
+                <span>Community: Swift Bengaluru</span>
+                <span>•</span>
+                <span>Hosted at: Okta, Ecoworld 31, Bellandur, Bengaluru</span>
+              </div>
+              <p class="event-desc">
+                Joined the <strong>Swift Bengaluru</strong> panel hosted at <strong>Okta Bengaluru</strong> to discuss identity, security, and the future of iOS apps. Fellow panelists were Ajey Charantimath and Viswanathan Parthasarathy, with Swapna Narayanswamy moderating.
+              </p>
+              <div class="event-actions">
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7516362397062787072/" target="_blank" rel="noopener" class="btn btn-secondary btn-xs">
+                  <span>View Event on LinkedIn ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
         <!-- Speaker Event 1: Tech Talk at Procore Technologies -->
         <article class="timeline-event-card">
           <div class="timeline-event-grid">
@@ -3049,11 +3080,7 @@
 
       <!-- Interactive Year Filter Tabs -->
       <div class="events-filter-bar">
-        <button class="event-tab active" onclick="filterEvents('all', this)">
-          <span>All Events</span>
-          <span class="event-tab-count">25</span>
-        </button>
-        <button class="event-tab" onclick="filterEvents('2026', this)">
+        <button class="event-tab active" onclick="filterEvents('2026', this)">
           <span>2026</span>
           <span class="event-tab-count">12</span>
         </button>
@@ -3726,13 +3753,15 @@
 
       const items = document.querySelectorAll('.event-attended-item');
       items.forEach(item => {
-        if (year === 'all' || item.getAttribute('data-year') === year) {
+        if (item.getAttribute('data-year') === year) {
           item.style.display = 'flex';
         } else {
           item.style.display = 'none';
         }
       });
     }
+
+    filterEvents('2026', document.querySelector('.events-filter-bar .event-tab'));
 
     // ─── Mobile Navigation Drawer Interactive Logic ───
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
